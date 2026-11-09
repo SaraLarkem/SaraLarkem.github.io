@@ -9,6 +9,7 @@ export function Contact() {
   return (
     <Section
       id="contact"
+      numeral="VI"
       title="Contact"
       subtitle="Open to graduate roles in software engineering, full-stack, backend, AI and cloud"
       backgroundImage={sectionBackgrounds.contact}

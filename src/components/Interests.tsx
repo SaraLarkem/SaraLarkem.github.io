@@ -5,6 +5,7 @@ export function Interests() {
   return (
     <Section
       id="interests"
+      numeral="V"
       title="Beyond Code"
       subtitle="Personality and curiosity outside software"
       className="section--interests"

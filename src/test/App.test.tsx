@@ -112,3 +112,15 @@ describe('Interests', () => {
     )
   })
 })
+
+describe('Section', () => {
+  it('shows a decorative numeral without changing the heading name', async () => {
+    const { About } = await import('../components/About')
+    const { container } = render(<About />)
+
+    expect(screen.getByRole('heading', { level: 2, name: 'About' })).toBeInTheDocument()
+    const numeral = container.querySelector('.section__numeral')
+    expect(numeral).toHaveTextContent('I')
+    expect(numeral).toHaveAttribute('aria-hidden', 'true')
+  })
+})

@@ -6,6 +6,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
+      numeral="III"
       title="Projects"
       subtitle="Selected engineering work from internship, university and personal development"
     >

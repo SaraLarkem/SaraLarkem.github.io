@@ -846,37 +846,41 @@ ul {
   color: var(--color-text-muted);
 }
 
+.section__numeral {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-inscription);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
 .section__divider {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  width: 100%;
-  max-width: 14rem;
   margin-top: 1rem;
+  line-height: 0;
+  color: var(--color-border-ornate);
 }
 
-.section__divider::before,
-.section__divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--color-border-ornate) 0,
-    var(--color-border-ornate) 3px,
-    transparent 3px,
-    transparent 7px
-  );
+.section__flourish {
+  display: block;
+  width: 14rem;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  /* Fade the outer line ends into the background */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
 }
 
-.section__divider-marker {
-  width: 6px;
-  height: 6px;
-  border: 1px solid var(--color-accent);
-  background: var(--color-surface);
-  transform: rotate(45deg);
-  flex-shrink: 0;
-  box-shadow: 0 0 0 2px var(--color-wine-subtle);
+.section__flourish-gem {
+  fill: var(--color-surface);
+  stroke: var(--color-accent);
+}
+
+.section__flourish-core {
+  fill: var(--color-wine);
 }
 
 /* About */

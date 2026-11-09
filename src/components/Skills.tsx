@@ -3,7 +3,7 @@ import { Section } from './Section'
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills" subtitle="Organised by focus area for quick scanning">
+    <Section id="skills" numeral="IV" title="Skills" subtitle="Organised by focus area for quick scanning">
       <div className="skills-grid">
         {skillCategories.map((category) => (
           <div key={category.name} className="skills-category">

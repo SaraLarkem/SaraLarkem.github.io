@@ -3,7 +3,7 @@ import { Section } from './Section'
 
 export function About() {
   return (
-    <Section id="about" title="About" subtitle="Background and engineering approach">
+    <Section id="about" numeral="I" title="About" subtitle="Background and engineering approach">
       <div className="about">
         <p className="about__lead">{aboutLead}</p>
         <p className="about__approach">{aboutApproach}</p>
