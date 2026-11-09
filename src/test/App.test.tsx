@@ -124,3 +124,14 @@ describe('Section', () => {
     expect(numeral).toHaveAttribute('aria-hidden', 'true')
   })
 })
+
+describe('ProjectCard item line', () => {
+  it('summarises primary technology and repository access', () => {
+    const project = projects.find((p) => p.access === 'private')!
+    const { container } = render(<ProjectCard project={project} />)
+
+    expect(container.querySelector('.project-card__record')).toHaveTextContent(
+      `${project.technologies[0]} · Private repository`,
+    )
+  })
+})

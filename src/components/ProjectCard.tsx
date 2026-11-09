@@ -14,9 +14,18 @@ const visualKindLabel: Record<NonNullable<Project['visualPlaceholder']>['kind'],
   code: 'Implementation',
 }
 
+const accessLabel: Record<NonNullable<Project['access']> | 'none', string> = {
+  private: 'Private repository',
+  public: 'Public repository',
+  none: '',
+}
+
 export function ProjectCard({ project, variant = 'additional' }: ProjectCardProps) {
   const showGithub = isConfiguredLink(project.githubUrl)
   const isFeatured = variant === 'featured' || project.featured
+  const itemLine = [project.technologies[0], accessLabel[project.access ?? 'none']]
+    .filter(Boolean)
+    .join(' · ')
 
   return (
     <article
@@ -63,8 +72,9 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
       )}
 
       <div className="project-card__body">
+        {/* Item-style category line; duplicates the tags and badges, so hidden from screen readers */}
         <p className="project-card__record" aria-hidden="true">
-          Archive entry
+          {itemLine}
         </p>
         <h3 id={`project-${project.id}-title`} className="project-card__title">
           {project.name}

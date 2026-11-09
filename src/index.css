@@ -27,6 +27,9 @@
   --shadow-sm: 0 1px 3px rgba(35, 28, 20, 0.09);
   --shadow-md: 0 4px 18px rgba(35, 28, 20, 0.11);
   --shadow-glow: 0 0 18px var(--color-ember-glow);
+  --shadow-inset: inset 0 1px 0 var(--color-surface-highlight), inset 0 0 36px rgba(90, 70, 45, 0.08);
+  --shadow-bonfire:
+    0 14px 30px -18px rgba(160, 90, 45, 0.45), inset 0 -36px 40px -38px rgba(170, 95, 45, 0.35);
   --header-bg: rgba(235, 228, 214, 0.9);
   --btn-primary-text: #f7f2e8;
   --hero-scrim: linear-gradient(
@@ -71,6 +74,9 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.48);
   --shadow-md: 0 6px 26px rgba(0, 0, 0, 0.52);
   --shadow-glow: 0 0 22px var(--color-ember-glow);
+  --shadow-inset: inset 0 1px 0 var(--color-surface-highlight), inset 0 0 48px rgba(0, 0, 0, 0.3);
+  --shadow-bonfire:
+    0 16px 34px -18px rgba(214, 110, 52, 0.5), inset 0 -40px 46px -40px rgba(214, 110, 52, 0.4);
   --header-bg: rgba(19, 20, 26, 0.93);
   --btn-primary-text: #1b1d24;
   --hero-scrim: linear-gradient(
@@ -227,14 +233,14 @@ ul {
   content: '';
   position: absolute;
   inset: 5px;
-  border: 1px solid var(--color-border-ornate);
-  opacity: 0.3;
+  border: 1px solid var(--color-accent-border);
+  opacity: 0.45;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
 }
 
 .manuscript-border:hover::before {
-  opacity: 0.55;
+  opacity: 0.85;
 }
 
 /* Skip link */
@@ -1363,6 +1369,37 @@ ul {
   border-bottom: none;
 }
 
+
+/* Item-description panels: recessed surface, gold double frame, bonfire glow on hover */
+.experience-card,
+.project-card,
+.skills-category {
+  box-shadow: var(--shadow-inset), var(--shadow-sm);
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.experience-card:hover,
+.project-card:hover,
+.skills-category:hover {
+  border-color: var(--color-accent-border);
+  box-shadow: var(--shadow-inset), var(--shadow-md), var(--shadow-bonfire);
+}
+
+.project-card__record {
+  font-family: var(--font-inscription);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+}
+
+.skills-category__title {
+  font-family: var(--font-inscription);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
 /* Interests */
 .section--interests .section__header {
   margin-bottom: 1.25rem;
