@@ -31,7 +31,12 @@
   --shadow-bonfire:
     0 14px 30px -18px rgba(160, 90, 45, 0.45), inset 0 -36px 40px -38px rgba(170, 95, 45, 0.35);
   --header-bg: rgba(235, 228, 214, 0.9);
-  --btn-primary-text: #f7f2e8;
+  --btn-primary-text: #fbf7ef;
+  --btn-plate-top: #876c47;
+  --btn-plate-mid: #7a6340;
+  --btn-plate-bottom: #5f4c2f;
+  --btn-engrave: rgba(30, 20, 10, 0.45);
+  --btn-bevel: inset 0 1px 0 rgba(255, 240, 210, 0.35), inset 0 -1px 0 rgba(30, 20, 10, 0.35);
   --hero-scrim: linear-gradient(
     105deg,
     rgba(240, 235, 227, 0.94) 0%,
@@ -78,7 +83,12 @@
   --shadow-bonfire:
     0 16px 34px -18px rgba(214, 110, 52, 0.5), inset 0 -40px 46px -40px rgba(214, 110, 52, 0.4);
   --header-bg: rgba(19, 20, 26, 0.93);
-  --btn-primary-text: #1b1d24;
+  --btn-primary-text: #17181d;
+  --btn-plate-top: #d6b788;
+  --btn-plate-mid: #b8956a;
+  --btn-plate-bottom: #a2825a;
+  --btn-engrave: rgba(255, 238, 205, 0.4);
+  --btn-bevel: inset 0 1px 0 rgba(255, 240, 210, 0.55), inset 0 -1px 0 rgba(40, 25, 10, 0.45);
   --hero-scrim: linear-gradient(
     105deg,
     rgba(18, 20, 26, 0.92) 0%,
@@ -188,6 +198,13 @@ a:hover {
   color: var(--color-accent-hover);
 }
 
+/* One focus style for every interactive element; :focus-visible limits it to keyboard use */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--color-accent-subtle);
+}
+
 ul {
   padding-left: 1.25rem;
 }
@@ -269,10 +286,12 @@ ul {
   gap: 0.375rem;
   padding: 0.625rem 1.25rem;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.4;
-  border-radius: 0.25rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 0.2rem;
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -280,50 +299,56 @@ ul {
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.25s ease,
+    filter 0.2s ease;
 }
 
-.btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
+/* Gold plate: three-stop gradient + bevel (light top edge, dark bottom edge) */
 .btn--primary {
-  background: var(--color-accent);
+  background: linear-gradient(180deg, var(--btn-plate-top) 0%, var(--btn-plate-mid) 48%, var(--btn-plate-bottom) 100%);
   color: var(--btn-primary-text);
-  border-color: var(--color-accent-border);
-  box-shadow: inset 0 1px 0 var(--color-surface-highlight);
+  border-color: var(--btn-plate-bottom);
+  text-shadow: 0 1px 0 var(--btn-engrave);
+  box-shadow: var(--btn-bevel), var(--shadow-sm);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
   color: var(--btn-primary-text);
-  box-shadow: var(--shadow-glow);
+  filter: brightness(1.08);
+  box-shadow: var(--btn-bevel), var(--shadow-glow);
 }
 
+.btn--primary:active {
+  filter: brightness(0.95);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Iron: dark surface, gold-tinted edge that warms on hover */
 .btn--secondary {
-  background: var(--color-surface);
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-deep) 100%);
   color: var(--color-text-heading);
-  border-color: var(--color-border);
+  border-color: var(--color-border-ornate);
+  box-shadow: inset 0 1px 0 var(--color-surface-highlight);
 }
 
 .btn--secondary:hover {
   border-color: var(--color-accent-border);
-  background: var(--color-accent-subtle);
   color: var(--color-text-heading);
-  box-shadow: var(--shadow-glow);
+  box-shadow: inset 0 1px 0 var(--color-surface-highlight), var(--shadow-bonfire);
 }
 
 .btn--cta {
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  box-shadow: var(--shadow-glow);
+  font-size: 0.9375rem;
+}
+
+.btn--primary.btn--cta {
+  box-shadow: var(--btn-bevel), var(--shadow-glow);
 }
 
 .btn--sm {
   padding: 0.4375rem 0.875rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   min-height: 2.25rem;
 }
 
@@ -449,11 +474,6 @@ ul {
   box-shadow: var(--shadow-glow);
 }
 
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
 .header__menu-btn {
   display: flex;
   align-items: center;
@@ -465,11 +485,6 @@ ul {
   border-radius: 0.25rem;
   background: var(--color-surface);
   cursor: pointer;
-}
-
-.header__menu-btn:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
 }
 
 .header__menu-icon,
