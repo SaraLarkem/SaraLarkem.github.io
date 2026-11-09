@@ -1,0 +1,430 @@
+/** Returns true when a link is real and safe to show (hides placeholders). */
+export function isConfiguredLink(href?: string | null): boolean {
+  if (!href) return false
+  if (href === '#' || href.trim() === '') return false
+  const lower = href.toLowerCase()
+  const placeholders = [
+    'your-username',
+    'your-profile',
+    'your-domain.com',
+    'example.com',
+    'placeholder',
+  ]
+  return !placeholders.some((token) => lower.includes(token))
+}
+
+export const siteConfig = {
+  name: 'Sara Larkem',
+  title: 'Software Developer | AI & Cloud Computing Student',
+  tagline:
+    'Final-year Software Design with AI and Cloud Computing student building backend systems, AI-assisted tools and responsive interfaces. Seeking graduate roles in software engineering, full-stack, backend, AI and cloud.',
+  university:
+    'Final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon, Ireland.',
+  email: '', // TODO: Add your email (e.g. sara@example.com)
+  links: {
+    github: 'https://github.com/SaraLarkem',
+    linkedin: '', // TODO: Add your LinkedIn URL
+    cv: '', // TODO: Add CV to public/cv/ and set path e.g. /cv/sara-larkem-cv.pdf
+  },
+  og: {
+    title: 'Sara Larkem — Software Developer Portfolio',
+    description:
+      'Final-year Software Design with AI and Cloud Computing student. Portfolio showcasing internship work, AI projects, backend systems and full-stack development.',
+    // og:url / og:image omitted until a deployed site URL and preview image are available
+  },
+  heroBackground: '/images/atmosphere/castle-mist.png',
+} as const
+
+export const sectionBackgrounds = {
+  interests: '/images/atmosphere/moonlit-realm.png',
+  contact: '/images/atmosphere/golden-tree.png',
+} as const
+
+export const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Contact', href: '#contact' },
+] as const
+
+export const aboutLead =
+  'I am Sara Larkem, a final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon. I build maintainable software across backend systems, AI-assisted tools and responsive interfaces, including work inside existing production codebases.'
+
+export const aboutApproach =
+  'I prefer to understand an existing system before changing it. During my internship I learned to identify reusable components, existing utilities and established patterns before introducing new functionality.'
+
+export const aboutFocusAreas = [
+  'Software Engineering',
+  'Backend & APIs',
+  'AI & Data',
+] as const
+
+export const experience = {
+  company: 'Causalix',
+  role: 'Software Development Intern',
+  summary:
+    'Contributed to an existing AI and causal-modelling platform across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. Worked within a production codebase, investigated unfamiliar systems before implementing changes, and delivered tested updates through feature branches and pull requests.',
+  highlights: [
+    'Built and tested a standalone causal-model auditing tool.',
+    'Implemented objective graph-quality analysis and an optional AI narrative layer.',
+    'Improved the presentation of Research Plan artefacts in the React frontend.',
+    'Designed a prompt-versioning and provenance approach for tracing how historical causal models were generated.',
+    'Investigated existing platform functionality before extending components or introducing new abstractions.',
+    'Used Git, Jira, automated testing and pull-request workflows throughout the internship.',
+  ],
+} as const
+
+export type ProjectVisualKind =
+  | 'architecture'
+  | 'api'
+  | 'evidence'
+  | 'database'
+  | 'code'
+
+export type Project = {
+  id: string
+  name: string
+  summary?: string
+  featured?: boolean
+  status?: 'in progress'
+  role?: string
+  access?: 'public' | 'private'
+  problem: string
+  built: string
+  highlights: readonly string[]
+  evidence?: readonly string[]
+  technologies: readonly string[]
+  learning: string
+  githubUrl?: string
+  screenshot?: string
+  /** Tasteful stand-in when no UI screenshot exists yet */
+  visualPlaceholder?: {
+    kind: ProjectVisualKind
+    label: string
+  }
+}
+
+export const projects: readonly Project[] = [
+  {
+    id: 'causal-model-auditor',
+    name: 'Causal Model Auditor',
+    summary:
+      'A standalone Python tool that analyses the structural and evidence quality of causal models before producing an optional AI-assisted explanation.',
+    featured: true,
+    role: 'Software Development Intern — sole developer for this tool',
+    access: 'private',
+    problem:
+      'Causal models need more than a generated summary. Their structure, evidence and feedback relationships must be evaluated using transparent and repeatable checks.',
+    built:
+      'Developed an auditing pipeline where objective metrics remain the source of truth and the AI narrative explains the results rather than replacing them.',
+    highlights: [
+      'Loaded causal graph data from structured JSON-style inputs and existing fixtures.',
+      'Detected feedback loops and recorded the nodes and edges involved.',
+      'Flagged missing citations, confidence information and incomplete evidence.',
+      'Calculated an explainable composite quality score with visible deductions.',
+      'Added an optional OpenAI-powered narrative with a fallback when no API key is available.',
+      'Exposed the workflow through a command-line interface with setup and usage documentation.',
+    ],
+    evidence: [
+      '13 automated tests passed after the AI narrative phase.',
+      'Separate feature branches were used for the objective auditor and AI narrative work.',
+      'Existing graph fixtures and repository functionality were reused instead of recreated.',
+    ],
+    technologies: [
+      'Python',
+      'Structured JSON',
+      'OpenAI API',
+      'Pytest',
+      'Environment variables',
+      'Command-line interfaces',
+      'Graph analysis',
+    ],
+    learning:
+      'Objective metrics should remain the source of truth. The AI narrative explains results rather than replacing them.',
+    visualPlaceholder: {
+      kind: 'evidence',
+      label: 'Architecture visual coming soon',
+    },
+  },
+  {
+    id: 'rag-pipeline',
+    name: 'Retrieval-Augmented Generation Pipeline',
+    summary:
+      'Built a pipeline that retrieves relevant document content and supplies it to a language model so responses can be grounded in source material.',
+    featured: true,
+    role: 'University / personal project — sole developer',
+    problem:
+      'Language model responses can be unsupported or unhelpful when they are not grounded in relevant source material.',
+    built:
+      'Implemented a retrieval-augmented generation workflow connecting document retrieval with prompt construction and answer generation.',
+    highlights: [
+      'Ingested documents and split text into manageable chunks.',
+      'Generated embeddings and stored searchable representations.',
+      'Retrieved the most relevant chunks for a query.',
+      'Added retrieved context to the prompt before generating an answer.',
+      'Produced answers grounded in the selected source material.',
+    ],
+    technologies: [
+      'Python',
+      'Embeddings',
+      'Vector retrieval',
+      'Large Language Models',
+    ],
+    learning:
+      'Retrieval quality is as important as generation quality. Poorly selected context can weaken an answer even when the language model itself is capable.',
+    visualPlaceholder: {
+      kind: 'architecture',
+      label: 'Architecture visual coming soon',
+    },
+  },
+  {
+    id: 'landing-safety',
+    name: 'Machine-Learning Landing Safety Predictor',
+    summary:
+      'Built a Python desktop application that classifies whether an environment is safe for landing using features such as atmosphere quality, gravity, radiation, temperature and terrain.',
+    featured: true,
+    role: 'University project — sole developer',
+    access: 'public',
+    problem:
+      'Landing safety depends on multiple environmental signals that are easier to assess with a structured classification workflow.',
+    built:
+      'Built a Python desktop application that classifies landing safety from environmental feature data.',
+    highlights: [
+      'Prepared feature data for model training and evaluation.',
+      'Evaluated model performance using a confusion matrix and accuracy metrics.',
+      'Provided an interactive PyQt5 interface for entering environmental conditions.',
+    ],
+    evidence: [
+      'Working PyQt5 and scikit-learn desktop application.',
+      'Public repository with source code and documentation.',
+    ],
+    technologies: [
+      'Python',
+      'PyQt5',
+      'Scikit-learn',
+      'Classification',
+      'Confusion matrix',
+      'Model accuracy evaluation',
+    ],
+    learning:
+      'Applied supervised learning to a multi-feature classification problem with clear evaluation criteria.',
+    screenshot: '/images/projects/landing-safety.png',
+    githubUrl: 'https://github.com/SaraLarkem/Astro-landing-guardian',
+  },
+  {
+    id: 'java-manga',
+    name: 'Java Manga Web Application',
+    summary:
+      'Built a Java web application for browsing, searching and managing manga entries using Servlets, JSP, DAO patterns and a relational database.',
+    featured: true,
+    role: 'University project — sole developer',
+    access: 'public',
+    problem:
+      'Manga catalogue data needed a database-backed web interface with search and management features.',
+    built:
+      'Built a Java web application for browsing, searching and managing manga entries.',
+    highlights: [
+      'Supported browsing, searching and managing manga entries.',
+      'Separated data access logic using DAO patterns.',
+      'Implemented session-based authentication and a personal reading list.',
+    ],
+    evidence: [
+      'Public GitHub repository with source, README and screenshots.',
+      'Deployable Maven WAR for Apache Tomcat.',
+    ],
+    technologies: ['Java', 'Servlets', 'JSP', 'SQL', 'DAO pattern', 'Apache Tomcat'],
+    learning:
+      'Practised server-side web development with clear separation between views, controllers and data access.',
+    screenshot: '/images/projects/java-manga.png',
+    githubUrl: 'https://github.com/SaraLarkem/java-manga-web-app',
+  },
+  {
+    id: 'research-plan-artefacts',
+    name: 'Research Plan Artefact Hierarchy',
+    summary:
+      'Improved the visual hierarchy of the Planner chat interface by making Research Plan artefacts distinct from ordinary assistant messages.',
+    role: 'Software Development Intern — frontend contribution',
+    access: 'private',
+    problem:
+      'Research Plan artefacts were visually indistinguishable from normal assistant follow-up messages in the Planner chat interface.',
+    built:
+      'Extended the existing chat message component with a generic artefact variant so Research Plans stand out without duplicating UI logic.',
+    highlights: [
+      'Reused the existing ChatBubble component.',
+      'Added a generic artefact variant instead of introducing a duplicate component.',
+      'Preserved existing user and assistant message styling.',
+      'Preserved metadata chips, markdown, action buttons, scrolling and expand/collapse behaviour.',
+      'Verified the result in desktop, mobile, light and dark layouts.',
+    ],
+    evidence: [
+      'Focused component tests passed.',
+      'Full frontend test suite passed.',
+      'Focused lint checks passed.',
+    ],
+    technologies: [
+      'React',
+      'TypeScript',
+      'Component testing',
+      'Responsive UI',
+      'Git',
+      'Pull-request workflow',
+    ],
+    learning:
+      'Good implementation in an established codebase often means extending the correct abstraction rather than building a new component from scratch.',
+    visualPlaceholder: {
+      kind: 'evidence',
+      label: 'UI visual coming soon',
+    },
+  },
+  {
+    id: 'prompt-versioning',
+    name: 'Prompt Versioning and Provenance',
+    status: 'in progress',
+    role: 'Software Development Intern — design and early implementation',
+    access: 'private',
+    summary:
+      'Designed and began implementing a database model for centrally managed, versioned prompts with historical generation traceability.',
+    problem:
+      'The platform needs to move prompts out of hard-coded application logic while retaining a permanent record of which prompt versions were used to generate each causal model.',
+    built:
+      'Proposed a data model that separates stable prompt identity from immutable prompt versions and links each generation event to the exact versions used.',
+    highlights: [
+      'Separated stable prompt identity from immutable prompt versions.',
+      'Designed storage for prompt content, version numbers and creation metadata.',
+      'Designed provenance records linking generation activity to the exact prompt versions used.',
+      'Included the user, generation timestamp and prompt role or workflow step.',
+      'Ensured historical records reference immutable prompt versions rather than the currently active version.',
+      'Planned database migrations and automated tests according to the current implementation state.',
+    ],
+    technologies: [
+      'Python',
+      'SQLAlchemy',
+      'Alembic',
+      'Relational database modelling',
+      'Automated testing',
+      'Prompt engineering',
+    ],
+    learning:
+      'Traceability depends on immutable version records, not on whichever prompt happens to be active at read time.',
+    visualPlaceholder: {
+      kind: 'database',
+      label: 'Data model visual coming soon',
+    },
+  },
+  {
+    id: 'music-rest-api',
+    name: 'Music REST API',
+    summary:
+      'Developed a REST API for managing song data, including database-backed endpoints tested through Postman.',
+    role: 'University project — sole developer',
+    problem:
+      'Song data needed structured HTTP endpoints with reliable database persistence and testable request handling.',
+    built:
+      'Created REST endpoints for managing song records and validated the API through Postman testing.',
+    highlights: [
+      'Implemented database-backed endpoints for song data.',
+      'Tested request and response behaviour using Postman.',
+    ],
+    technologies: ['PHP', 'Slim', 'PDO', 'MySQL', 'REST APIs', 'Postman'],
+    learning:
+      'Designed API endpoints around clear resource operations and verified them with practical request testing.',
+    visualPlaceholder: {
+      kind: 'api',
+      label: 'API visual coming soon',
+    },
+  },
+  {
+    id: 'inventory-system',
+    name: 'Python Inventory Management System',
+    summary:
+      'Contributed to a team-built command-line inventory system with account management, stock updates, sales records and transaction reporting.',
+    role: 'University team project — contributor',
+    problem:
+      'A small inventory workflow needed reliable stock tracking, sales recording and reporting in a shared codebase.',
+    built:
+      'Worked on a command-line inventory system with account management, stock updates, sales records and transaction reporting.',
+    highlights: [
+      'Implemented stock updates, sales records and transaction reporting.',
+      'Applied input validation and team-based development practices.',
+    ],
+    technologies: [
+      'Python',
+      'SQLite',
+      'GitHub',
+      'Jira',
+      'Team development',
+      'Input validation',
+    ],
+    learning:
+      'Practised collaborative development with shared requirements, version control and task tracking.',
+    visualPlaceholder: {
+      kind: 'code',
+      label: 'CLI visual coming soon',
+    },
+  },
+]
+
+export const featuredProjects = projects.filter((project) => project.featured)
+export const additionalProjects = projects.filter((project) => !project.featured)
+
+export const skillCategories = [
+  {
+    name: 'Software development',
+    skills: ['Python', 'Java', 'TypeScript', 'JavaScript', 'SQL', 'HTML', 'CSS'],
+  },
+  {
+    name: 'Frontend',
+    skills: [
+      'React',
+      'Responsive design',
+      'Component-based development',
+      'Frontend testing',
+      'Accessibility fundamentals',
+    ],
+  },
+  {
+    name: 'Backend and data',
+    skills: [
+      'REST APIs',
+      'Relational database design',
+      'SQLite',
+      'MySQL',
+      'PostgreSQL',
+      'Database migrations',
+      'Structured JSON interfaces',
+    ],
+  },
+  {
+    name: 'AI and machine learning',
+    skills: [
+      'Retrieval-Augmented Generation',
+      'Large Language Models',
+      'Prompt engineering',
+      'Embeddings',
+      'Vector retrieval',
+      'Scikit-learn',
+      'Structured AI outputs',
+      'AI evaluation and grounding',
+    ],
+  },
+  {
+    name: 'Engineering tools and practices',
+    skills: [
+      'Git',
+      'GitHub',
+      'Jira',
+      'Pull requests',
+      'Feature branches',
+      'Pytest',
+      'Vitest',
+      'Repository investigation',
+      'Technical documentation',
+      'Automated testing',
+    ],
+  },
+] as const
+
+export const interestsText =
+  'Away from the editor I enjoy Souls games, fantasy and science fiction, environmental storytelling and complex character-driven worlds, alongside fitness and creative projects. Those interests keep me curious about systems, atmosphere and how people experience a world—digital or otherwise.'
