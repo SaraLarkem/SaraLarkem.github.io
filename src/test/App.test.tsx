@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
+import { Contact } from '../components/Contact'
 import { Hero } from '../components/Hero'
 import { ProjectCard } from '../components/ProjectCard'
 import { Projects } from '../components/Projects'
@@ -21,8 +22,27 @@ describe('Hero', () => {
       'href',
       'https://github.com/SaraLarkem',
     )
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/slarkem/',
+    )
     expect(screen.queryByRole('link', { name: 'Download CV' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'LinkedIn' })).not.toBeInTheDocument()
+  })
+})
+
+describe('Contact', () => {
+  it('shows email and LinkedIn without the placeholder note', () => {
+    render(<Contact />)
+
+    expect(screen.getByRole('link', { name: 'Email me' })).toHaveAttribute(
+      'href',
+      'mailto:saralarkem7@gmail.com',
+    )
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/slarkem/',
+    )
+    expect(screen.queryByText(/being finalised/)).not.toBeInTheDocument()
   })
 })
 

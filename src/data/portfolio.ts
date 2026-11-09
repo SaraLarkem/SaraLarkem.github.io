@@ -20,10 +20,10 @@ export const siteConfig = {
     'Final-year Software Design with AI and Cloud Computing student building backend systems, AI-assisted tools and responsive interfaces. Seeking graduate roles in software engineering, full-stack, backend, AI and cloud.',
   university:
     'Final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon, Ireland.',
-  email: '', // TODO: Add your email (e.g. sara@example.com)
+  email: 'saralarkem7@gmail.com',
   links: {
     github: 'https://github.com/SaraLarkem',
-    linkedin: '', // TODO: Add your LinkedIn URL
+    linkedin: 'https://www.linkedin.com/in/slarkem/',
     cv: '', // TODO: Add CV to public/cv/ and set path e.g. /cv/sara-larkem-cv.pdf
   },
   og: {
