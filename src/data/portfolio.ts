@@ -24,7 +24,7 @@ export const siteConfig = {
   links: {
     github: 'https://github.com/SaraLarkem',
     linkedin: 'https://www.linkedin.com/in/slarkem/',
-    cv: '', // TODO: Add CV to public/cv/ and set path e.g. /cv/sara-larkem-cv.pdf
+    cv: '/cv/sara-larkem-cv.pdf',
   },
   og: {
     title: 'Sara Larkem — Software Developer Portfolio',

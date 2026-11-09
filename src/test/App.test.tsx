@@ -26,12 +26,15 @@ describe('Hero', () => {
       'href',
       'https://www.linkedin.com/in/slarkem/',
     )
-    expect(screen.queryByRole('link', { name: 'Download CV' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Download CV' })).toHaveAttribute(
+      'href',
+      '/cv/sara-larkem-cv.pdf',
+    )
   })
 })
 
 describe('Contact', () => {
-  it('shows email and LinkedIn without the placeholder note', () => {
+  it('shows email, LinkedIn and CV without the placeholder note', () => {
     render(<Contact />)
 
     expect(screen.getByRole('link', { name: 'Email me' })).toHaveAttribute(
@@ -42,6 +45,7 @@ describe('Contact', () => {
       'href',
       'https://www.linkedin.com/in/slarkem/',
     )
+    expect(screen.getByRole('link', { name: 'Download CV' })).toHaveAttribute('download')
     expect(screen.queryByText(/being finalised/)).not.toBeInTheDocument()
   })
 })
