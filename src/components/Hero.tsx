@@ -1,4 +1,5 @@
 import { isConfiguredLink, siteConfig } from '../data/portfolio'
+import { Embers } from './Embers'
 import { SectionBackdrop } from './SectionBackdrop'
 
 export function Hero() {
@@ -9,12 +10,14 @@ export function Hero() {
   return (
     <section id="home" className="hero section--backdrop" aria-labelledby="hero-heading">
       <SectionBackdrop image={siteConfig.heroBackground} position="center 30%" />
+      <Embers />
 
       <div className="hero__inner">
         <p className="hero__eyebrow">Portfolio</p>
         <h1 id="hero-heading" className="hero__title">
           {siteConfig.name}
         </h1>
+        <span className="hero__rule" aria-hidden="true" />
         <p className="hero__role">{siteConfig.title}</p>
         <p className="hero__intro">{siteConfig.tagline}</p>
 

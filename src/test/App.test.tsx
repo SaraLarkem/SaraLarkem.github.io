@@ -31,6 +31,14 @@ describe('Hero', () => {
       '/cv/sara-larkem-cv.pdf',
     )
   })
+
+  it('keeps decorative embers hidden from assistive technology', () => {
+    const { container } = render(<Hero />)
+    const embers = container.querySelector('.embers')
+
+    expect(embers).toHaveAttribute('aria-hidden', 'true')
+    expect(embers?.children.length).toBeGreaterThan(0)
+  })
 })
 
 describe('Contact', () => {
