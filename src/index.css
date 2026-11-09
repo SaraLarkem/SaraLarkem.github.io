@@ -645,7 +645,7 @@ ul {
 .hero__title {
   margin: 0 0 0.5rem;
   font-family: var(--font-inscription);
-  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-size: clamp(1.875rem, 7vw, 3.75rem);
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1220,11 +1220,12 @@ ul {
 
 .project-card__record {
   margin: 0 0 0.5rem;
+  font-family: var(--font-inscription);
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-iron);
+  color: var(--color-accent);
 }
 
 .project-card__record::before {
@@ -1357,11 +1358,11 @@ ul {
 .skills-category__title {
   margin: 0 0 0.875rem;
   padding-bottom: 0.5rem;
-  font-size: 0.9375rem;
-  font-family: var(--font-serif);
+  font-size: 0.8125rem;
+  font-family: var(--font-inscription);
   font-weight: 600;
-  color: var(--color-text-heading);
-  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   border-bottom: 1px solid var(--color-border-ornate);
   border-bottom-style: dashed;
@@ -1400,20 +1401,6 @@ ul {
 .skills-category:hover {
   border-color: var(--color-accent-border);
   box-shadow: var(--shadow-inset), var(--shadow-md), var(--shadow-bonfire);
-}
-
-.project-card__record {
-  font-family: var(--font-inscription);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  color: var(--color-accent);
-}
-
-.skills-category__title {
-  font-family: var(--font-inscription);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  color: var(--color-accent);
 }
 /* Interests */
 .section--interests .section__header {
