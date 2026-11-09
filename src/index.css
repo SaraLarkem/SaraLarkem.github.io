@@ -87,6 +87,13 @@
   );
 }
 
+/* ── Type scale: inscription (display), serif (headings), sans (body) ── */
+:root {
+  --font-inscription: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -112,7 +119,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
   color: var(--color-text);
@@ -159,7 +166,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-serif);
   font-weight: 600;
   color: var(--color-text-heading);
   line-height: 1.15;
@@ -360,13 +367,14 @@ ul {
 }
 
 .header__logo {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.35rem;
+  font-family: var(--font-inscription);
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-text-heading);
   text-decoration: none;
   white-space: nowrap;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .header__logo:hover {
@@ -615,8 +623,11 @@ ul {
 
 .hero__title {
   margin: 0 0 0.5rem;
-  font-size: clamp(2.75rem, 6vw, 4rem);
-  letter-spacing: 0.01em;
+  font-family: var(--font-inscription);
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .hero__role {
@@ -659,8 +670,11 @@ ul {
 
 .section__title {
   margin: 0 0 0.375rem;
-  font-size: clamp(1.875rem, 4vw, 2.5rem);
-  letter-spacing: 0.02em;
+  font-family: var(--font-inscription);
+  font-size: clamp(1.625rem, 3.5vw, 2.125rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .section__subtitle {
@@ -760,7 +774,7 @@ ul {
 .experience-card__company {
   margin: 0;
   font-weight: 600;
-  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-family: var(--font-sans);
   color: var(--color-accent);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -782,7 +796,7 @@ ul {
 .experience-card__highlights-title {
   margin: 0 0 0.5rem;
   font-size: 0.9375rem;
-  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1156,7 +1170,7 @@ ul {
   margin: 0 0 0.875rem;
   padding-bottom: 0.5rem;
   font-size: 0.9375rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-serif);
   font-weight: 600;
   color: var(--color-text-heading);
   letter-spacing: 0.06em;
