@@ -32,12 +32,6 @@ export const siteConfig = {
       'Final-year Software Design with AI and Cloud Computing student. Portfolio showcasing internship work, AI projects, backend systems and full-stack development.',
     // og:url / og:image omitted until a deployed site URL and preview image are available
   },
-  heroBackground: '/images/atmosphere/castle-mist.png',
-} as const
-
-export const sectionBackgrounds = {
-  interests: '/images/atmosphere/moonlit-realm.png',
-  contact: '/images/atmosphere/golden-tree.png',
 } as const
 
 export const navItems = [
