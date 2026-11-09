@@ -70,9 +70,10 @@ export const experience = {
     'Built and tested a standalone causal-model auditing tool.',
     'Implemented objective graph-quality analysis and an optional AI narrative layer.',
     'Improved the presentation of Research Plan artefacts in the React frontend.',
+    'Delivered authentication fixes and system health monitoring across the platform.',
     'Designed a prompt-versioning and provenance approach for tracing how historical causal models were generated.',
     'Investigated existing platform functionality before extending components or introducing new abstractions.',
-    'Used Git, Jira, automated testing and pull-request workflows throughout the internship.',
+    'Used Git, Docker, Jira, automated testing and pull-request workflows throughout the internship.',
   ],
 } as const
 
@@ -392,6 +393,7 @@ export const skillCategories = [
       'SQLite',
       'MySQL',
       'PostgreSQL',
+      'SQLAlchemy',
       'Database migrations',
       'Structured JSON interfaces',
     ],
@@ -414,6 +416,7 @@ export const skillCategories = [
     skills: [
       'Git',
       'GitHub',
+      'Docker',
       'Jira',
       'Pull requests',
       'Feature branches',
