@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { SectionBackdrop } from './SectionBackdrop'
+import { SectionBackdrop, type BackdropScene } from './SectionBackdrop'
 
 type SectionProps = {
   id: string
@@ -9,8 +9,8 @@ type SectionProps = {
   subtitle?: string
   children: ReactNode
   className?: string
-  backgroundImage?: string
-  backgroundPosition?: string
+  /** Optional CSS-drawn atmosphere behind the section. */
+  backdropScene?: BackdropScene
 }
 
 function SectionFlourish() {
@@ -45,18 +45,15 @@ export function Section({
   subtitle,
   children,
   className = '',
-  backgroundImage,
-  backgroundPosition,
+  backdropScene,
 }: SectionProps) {
-  const sectionClass = ['section', backgroundImage ? 'section--backdrop' : '', className]
+  const sectionClass = ['section', backdropScene ? 'section--backdrop' : '', className]
     .filter(Boolean)
     .join(' ')
 
   return (
     <section id={id} className={sectionClass} aria-labelledby={`${id}-heading`}>
-      {backgroundImage && (
-        <SectionBackdrop image={backgroundImage} position={backgroundPosition} />
-      )}
+      {backdropScene && <SectionBackdrop scene={backdropScene} />}
       <div className="section__inner">
         <header className="section__header">
           {numeral && (

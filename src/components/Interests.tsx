@@ -1,4 +1,4 @@
-import { interestsText, sectionBackgrounds } from '../data/portfolio'
+import { interestsText } from '../data/portfolio'
 import { Section } from './Section'
 
 export function Interests() {
@@ -9,8 +9,7 @@ export function Interests() {
       title="Beyond Code"
       subtitle="Personality and curiosity outside software"
       className="section--interests"
-      backgroundImage={sectionBackgrounds.interests}
-      backgroundPosition="center 40%"
+      backdropScene="moon"
     >
       <p className="interests__text">{interestsText}</p>
     </Section>

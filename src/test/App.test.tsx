@@ -106,10 +106,9 @@ describe('Interests', () => {
 
     expect(screen.getByRole('heading', { name: 'Beyond Code' })).toBeInTheDocument()
     expect(screen.getByText(/Souls games/i)).toBeInTheDocument()
-    expect(container.querySelector('.atmosphere-backdrop img')).toHaveAttribute(
-      'src',
-      '/images/atmosphere/moonlit-realm.png',
-    )
+    expect(container.querySelector('.atmosphere-backdrop--moon')).toBeInTheDocument()
+    // Backdrops are CSS-drawn: no images are loaded
+    expect(container.querySelector('.atmosphere-backdrop img')).toBeNull()
   })
 })
 

@@ -1,4 +1,4 @@
-import { isConfiguredLink, sectionBackgrounds, siteConfig } from '../data/portfolio'
+import { isConfiguredLink, siteConfig } from '../data/portfolio'
 import { Section } from './Section'
 
 export function Contact() {
@@ -12,8 +12,7 @@ export function Contact() {
       numeral="VI"
       title="Contact"
       subtitle="Open to graduate roles in software engineering, full-stack, backend, AI and cloud"
-      backgroundImage={sectionBackgrounds.contact}
-      backgroundPosition="center 35%"
+      backdropScene="gold"
     >
       <div className="contact">
         <p className="contact__text">

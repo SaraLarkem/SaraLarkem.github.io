@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <section id="home" className="hero section--backdrop" aria-labelledby="hero-heading">
-      <SectionBackdrop image={siteConfig.heroBackground} position="center 30%" />
+      <SectionBackdrop scene="castle" />
       <Embers />
 
       <div className="hero__inner">
