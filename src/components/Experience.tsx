@@ -5,7 +5,7 @@ export function Experience() {
   return (
     <Section
       id="experience"
-      numeral="II"
+      numeral="III"
       title="Experience"
       subtitle="Internship contribution within an existing software platform"
     >
