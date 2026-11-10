@@ -41,6 +41,7 @@ export const navItems = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Beyond Code', href: '#beyond-code' },
+  { label: 'Career Goals', href: '#career-goals' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
@@ -452,6 +453,13 @@ export const skillCategories = [
     ],
   },
 ] as const
+
+export const careerGoals = {
+  lead: 'I am looking for a software engineering opportunity where I can create and contribute to real products while continuing to improve my skills.',
+  roles: ['Backend', 'Full-Stack', 'AI-related roles'],
+  text: 'I bring strong problem-solving skills and an eagerness to learn, whether that means picking up a new methodology or getting to grips with an unfamiliar codebase.',
+  goal: 'My goal is to become a software engineer who brings light and positivity to the work environments I am part of.',
+} as const
 
 /** Non-coding experience and the skills it built (Beyond Code section). */
 export const beyondCode = [

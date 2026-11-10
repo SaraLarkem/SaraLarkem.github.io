@@ -163,3 +163,36 @@ describe('Skills & Interests', () => {
     expect(screen.getByText('Going to the gym')).toBeInTheDocument()
   })
 })
+
+describe('Career Goals', () => {
+  it('states the opportunity, target roles and long-term goal', async () => {
+    const { CareerGoals } = await import('../components/CareerGoals')
+    render(<CareerGoals />)
+
+    expect(screen.getByRole('heading', { level: 2, name: 'Career Goals' })).toBeInTheDocument()
+    expect(screen.getByText(/software engineering opportunity/)).toBeInTheDocument()
+    for (const role of ['Backend', 'Full-Stack', 'AI-related roles']) {
+      expect(screen.getByText(role)).toBeInTheDocument()
+    }
+    expect(screen.getByText(/light and positivity/)).toBeInTheDocument()
+  })
+})
+
+describe('Page order', () => {
+  it('follows the video walkthrough', async () => {
+    const { default: App } = await import('../App')
+    const { container } = render(<App />)
+
+    const ids = [...container.querySelectorAll('main > section')].map((s) => s.id)
+    expect(ids).toEqual([
+      'home',
+      'about',
+      'skills',
+      'experience',
+      'projects',
+      'beyond-code',
+      'career-goals',
+      'contact',
+    ])
+  })
+})

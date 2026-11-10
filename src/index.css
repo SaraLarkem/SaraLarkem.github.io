@@ -544,7 +544,8 @@ ul {
   border-bottom: none;
 }
 
-@media (min-width: 768px) {
+/* Eight nav links need a laptop-width bar; narrower screens use the menu button */
+@media (min-width: 1024px) {
   .header__nav {
     display: block;
   }
@@ -558,7 +559,7 @@ ul {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .header__nav-link {
     font-size: 0.875rem;
     padding: 0.4375rem 0.625rem;
@@ -1534,6 +1535,35 @@ ul {
 .beyond__text {
   margin: 0 0 1.125rem;
   font-size: 0.9375rem;
+}
+
+/* Career Goals */
+.career__lead {
+  margin: 0 0 1.25rem;
+  max-width: 44rem;
+  font-size: 1.0625rem;
+}
+
+.career__roles-label {
+  margin: 0 0 0.625rem;
+}
+
+.career__text {
+  margin: 1.5rem 0 0;
+  max-width: 44rem;
+}
+
+.career__goal {
+  margin: 1.75rem 0 0;
+  max-width: 44rem;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-text-heading);
+  background: var(--color-accent-subtle);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 0.15rem;
 }
 
 .beyond__entry .interests__list {

@@ -5,6 +5,7 @@ import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import { BeyondCode } from './components/BeyondCode'
+import { CareerGoals } from './components/CareerGoals'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
@@ -22,6 +23,7 @@ function App() {
         <Experience />
         <Projects />
         <BeyondCode />
+        <CareerGoals />
         <Contact />
       </main>
       <Footer />
