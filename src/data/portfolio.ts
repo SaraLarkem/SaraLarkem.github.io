@@ -40,6 +40,7 @@ export const navItems = [
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Beyond Code', href: '#beyond-code' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
@@ -452,5 +453,23 @@ export const skillCategories = [
   },
 ] as const
 
-export const interestsText =
-  'Away from the editor I enjoy Souls games, fantasy and science fiction, environmental storytelling and complex character-driven worlds, alongside fitness and creative projects. Those interests keep me curious about systems, atmosphere and how people experience a world—digital or otherwise.'
+/** Non-coding experience and the skills it built (Beyond Code section). */
+export const beyondCode = [
+  {
+    title: 'Health Assistant',
+    place: 'Connected Health · over a year',
+    text: 'I worked as a care giver with Connected Health for over a year. Care work depends on being reliable, staying calm and communicating clearly with the people you support.',
+    skills: [
+      'Working independently',
+      'Being responsible',
+      'Communicating clearly',
+      'Handling challenges calmly',
+    ],
+  },
+  {
+    title: 'College',
+    place: 'Technological University of the Shannon',
+    text: 'Team projects at college regularly put me alongside new people, with deadlines that every member had to meet.',
+    skills: ['Working with new people', 'Meeting project demands on time', 'Time management'],
+  },
+] as const

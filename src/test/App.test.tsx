@@ -111,13 +111,15 @@ describe('Projects', () => {
   })
 })
 
-describe('Interests', () => {
-  it('renders beyond code section with interests text and backdrop', async () => {
-    const { Interests } = await import('../components/Interests')
-    const { container } = render(<Interests />)
+describe('Beyond Code', () => {
+  it('shows care work and college experience over the CSS moon backdrop', async () => {
+    const { BeyondCode } = await import('../components/BeyondCode')
+    const { container } = render(<BeyondCode />)
 
-    expect(screen.getByRole('heading', { name: 'Beyond Code' })).toBeInTheDocument()
-    expect(screen.getByText(/Souls games/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'What I Bring Beyond Code' })).toBeInTheDocument()
+    expect(screen.getByText(/Connected Health/, { selector: '.beyond__place' })).toBeInTheDocument()
+    expect(screen.getByText('Handling challenges calmly')).toBeInTheDocument()
+    expect(screen.getByText('Meeting project demands on time')).toBeInTheDocument()
     expect(container.querySelector('.atmosphere-backdrop--moon')).toBeInTheDocument()
     // Backdrops are CSS-drawn: no images are loaded
     expect(container.querySelector('.atmosphere-backdrop img')).toBeNull()

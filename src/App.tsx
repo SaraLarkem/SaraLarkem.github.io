@@ -4,7 +4,7 @@ import { About } from './components/About'
 import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
-import { Interests } from './components/Interests'
+import { BeyondCode } from './components/BeyondCode'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
@@ -21,7 +21,7 @@ function App() {
         <Skills />
         <Experience />
         <Projects />
-        <Interests />
+        <BeyondCode />
         <Contact />
       </main>
       <Footer />
