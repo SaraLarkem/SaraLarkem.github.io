@@ -17,7 +17,7 @@ export const siteConfig = {
   name: 'Sara Larkem',
   title: 'Software Developer | AI & Cloud Computing Student',
   tagline:
-    'Final-year Software Design with AI and Cloud Computing student building backend systems, AI-assisted tools and responsive interfaces. Seeking graduate roles in software engineering, full-stack, backend, AI and cloud.',
+    'Final-year Software Design with AI and Cloud Computing student with a strong interest in backend development, full-stack development and machine learning. Seeking graduate roles in software engineering, backend, full-stack and AI.',
   university:
     'Final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon, Ireland.',
   email: 'saralarkem7@gmail.com',
@@ -44,15 +44,15 @@ export const navItems = [
 ] as const
 
 export const aboutLead =
-  'I am Sara Larkem, a final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon. I build maintainable software across backend systems, AI-assisted tools and responsive interfaces, including work inside existing production codebases.'
+  'I am Sara Larkem, a final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon. I am especially interested in backend development, full-stack development and machine learning, and I have built software across all three, including work inside an existing production codebase.'
 
 export const aboutApproach =
-  'I prefer to understand an existing system before changing it. During my internship I learned to identify reusable components, existing utilities and established patterns before introducing new functionality.'
+  'I enjoy making sense of complex systems and learning new methodologies. I prefer to understand an existing system before changing it: during my internship I learned to identify reusable components, existing utilities and established patterns before introducing new functionality.'
 
 export const aboutFocusAreas = [
-  'Software Engineering',
-  'Backend & APIs',
-  'AI & Data',
+  'Backend Development',
+  'Full-Stack Development',
+  'Machine Learning',
 ] as const
 
 export const experience = {
