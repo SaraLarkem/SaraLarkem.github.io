@@ -17,12 +17,16 @@ export function Experience() {
           </div>
         </header>
         <p className="experience-card__summary">{experience.summary}</p>
+        <p className="experience-card__summary">{experience.duties}</p>
         <h4 className="experience-card__highlights-title">Key contributions</h4>
         <ul className="experience-card__highlights">
           {experience.highlights.map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>
+        <a href="#internship-projects" className="experience-card__link">
+          See the projects from this internship ↓
+        </a>
       </article>
     </Section>
   )

@@ -60,6 +60,8 @@ export const experience = {
   role: 'Software Development Intern',
   summary:
     'Contributed to an existing AI and causal-modelling platform across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. Worked within a production codebase, investigated unfamiliar systems before implementing changes, and delivered tested updates through feature branches and pull requests.',
+  duties:
+    'My day-to-day work covered debugging, testing, and designing and implementing new features across both frontend and backend applications. Working with new and unfamiliar systems taught me to apply what I learned in my degree in a real-world setting.',
   highlights: [
     'Built and tested a standalone causal-model auditing tool.',
     'Implemented objective graph-quality analysis and an optional AI narrative layer.',
