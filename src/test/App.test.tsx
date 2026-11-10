@@ -4,7 +4,7 @@ import { Contact } from '../components/Contact'
 import { Hero } from '../components/Hero'
 import { ProjectCard } from '../components/ProjectCard'
 import { Projects } from '../components/Projects'
-import { featuredProjects, projects } from '../data/portfolio'
+import { internshipProjects, projects, universityProjects } from '../data/portfolio'
 
 describe('Hero', () => {
   it('renders name, title, and primary project CTA', () => {
@@ -60,7 +60,7 @@ describe('Contact', () => {
 
 describe('ProjectCard', () => {
   it('renders project details and evidence', () => {
-    const project = projects[0]
+    const project = projects.find((p) => p.id === 'causal-model-auditor')!
     render(<ProjectCard project={project} />)
 
     expect(screen.getByRole('heading', { name: project.name })).toBeInTheDocument()
@@ -90,12 +90,24 @@ describe('ProjectCard', () => {
 })
 
 describe('Projects', () => {
-  it('groups featured and additional projects', () => {
+  it('lists Causalix internship projects before university projects', () => {
+    const { container } = render(<Projects />)
+
+    const groups = [...container.querySelectorAll('.projects-group__title')].map((h) => h.textContent)
+    expect(groups).toEqual(['Causalix Internship', 'University Projects'])
+    expect(internshipProjects[0].id).toBe('rag-pipeline')
+    expect(internshipProjects.every((p) => p.access === 'private')).toBe(true)
+    expect(universityProjects.map((p) => p.id)).toContain('landing-safety')
+  })
+
+  it('describes the RAG pipeline with FAISS and the decision-tree landing predictor', () => {
     render(<Projects />)
 
-    expect(screen.getByRole('heading', { name: 'Featured Projects' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Additional Projects' })).toBeInTheDocument()
-    expect(featuredProjects).toHaveLength(4)
+    expect(screen.getByRole('heading', { name: /RAG Pipeline/ })).toBeInTheDocument()
+    expect(screen.getAllByText('FAISS').length).toBeGreaterThan(0)
+    expect(screen.getByRole('heading', { name: 'Spacecraft Landing Safety Predictor' })).toBeInTheDocument()
+    expect(screen.getByText('Decision tree classifier')).toBeInTheDocument()
+    expect(screen.queryByText(/coming soon/i)).not.toBeInTheDocument()
   })
 })
 

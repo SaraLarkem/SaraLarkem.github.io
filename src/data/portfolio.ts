@@ -86,6 +86,8 @@ export type Project = {
   summary?: string
   featured?: boolean
   status?: 'in progress'
+  /** Where the work was done; drives the grouping on the Projects section. */
+  context: 'internship' | 'university'
   role?: string
   access?: 'public' | 'private'
   problem: string
@@ -96,16 +98,43 @@ export type Project = {
   learning: string
   githubUrl?: string
   screenshot?: string
-  /** Tasteful stand-in when no UI screenshot exists yet */
+  /** Decorative stand-in panel when no UI screenshot exists */
   visualPlaceholder?: {
     kind: ProjectVisualKind
-    label: string
   }
 }
 
 export const projects: readonly Project[] = [
   {
+    id: 'rag-pipeline',
+    context: 'internship',
+    name: 'RAG Pipeline (Retrieval-Augmented Generation)',
+    summary:
+      'Built during my Causalix internship: a pipeline that processes documents, converts them into embeddings, retrieves the most relevant content with FAISS and uses that context to generate grounded answers.',
+    featured: true,
+    role: 'Software Development Intern at Causalix',
+    access: 'private',
+    problem:
+      'Language model responses can be unsupported or unhelpful when they are not grounded in relevant source material.',
+    built:
+      'Implemented a retrieval-augmented generation workflow that connects document processing, FAISS similarity search and prompt construction, so answers are generated from retrieved source material.',
+    highlights: [
+      'Processed documents and split text into manageable chunks.',
+      'Converted each chunk into an embedding and indexed the embeddings with FAISS.',
+      'Retrieved the most relevant content for a query using FAISS similarity search.',
+      'Added the retrieved context to the prompt before generating an answer.',
+      'Produced answers grounded in the selected source material.',
+    ],
+    technologies: ['Python', 'FAISS', 'Embeddings', 'Vector retrieval', 'Large Language Models'],
+    learning:
+      'Retrieval quality is as important as generation quality. Poorly selected context can weaken an answer even when the language model itself is capable.',
+    visualPlaceholder: {
+      kind: 'architecture',
+    },
+  },
+  {
     id: 'causal-model-auditor',
+    context: 'internship',
     name: 'Causal Model Auditor',
     summary:
       'A standalone Python tool that analyses the structural and evidence quality of causal models before producing an optional AI-assisted explanation.',
@@ -142,103 +171,11 @@ export const projects: readonly Project[] = [
       'Objective metrics should remain the source of truth. The AI narrative explains results rather than replacing them.',
     visualPlaceholder: {
       kind: 'evidence',
-      label: 'Architecture visual coming soon',
     },
-  },
-  {
-    id: 'rag-pipeline',
-    name: 'Retrieval-Augmented Generation Pipeline',
-    summary:
-      'Built a pipeline that retrieves relevant document content and supplies it to a language model so responses can be grounded in source material.',
-    featured: true,
-    role: 'University / personal project — sole developer',
-    problem:
-      'Language model responses can be unsupported or unhelpful when they are not grounded in relevant source material.',
-    built:
-      'Implemented a retrieval-augmented generation workflow connecting document retrieval with prompt construction and answer generation.',
-    highlights: [
-      'Ingested documents and split text into manageable chunks.',
-      'Generated embeddings and stored searchable representations.',
-      'Retrieved the most relevant chunks for a query.',
-      'Added retrieved context to the prompt before generating an answer.',
-      'Produced answers grounded in the selected source material.',
-    ],
-    technologies: [
-      'Python',
-      'Embeddings',
-      'Vector retrieval',
-      'Large Language Models',
-    ],
-    learning:
-      'Retrieval quality is as important as generation quality. Poorly selected context can weaken an answer even when the language model itself is capable.',
-    visualPlaceholder: {
-      kind: 'architecture',
-      label: 'Architecture visual coming soon',
-    },
-  },
-  {
-    id: 'landing-safety',
-    name: 'Machine-Learning Landing Safety Predictor',
-    summary:
-      'Built a Python desktop application that classifies whether an environment is safe for landing using features such as atmosphere quality, gravity, radiation, temperature and terrain.',
-    featured: true,
-    role: 'University project — sole developer',
-    access: 'public',
-    problem:
-      'Landing safety depends on multiple environmental signals that are easier to assess with a structured classification workflow.',
-    built:
-      'Built a Python desktop application that classifies landing safety from environmental feature data.',
-    highlights: [
-      'Prepared feature data for model training and evaluation.',
-      'Evaluated model performance using a confusion matrix and accuracy metrics.',
-      'Provided an interactive PyQt5 interface for entering environmental conditions.',
-    ],
-    evidence: [
-      'Working PyQt5 and scikit-learn desktop application.',
-      'Public repository with source code and documentation.',
-    ],
-    technologies: [
-      'Python',
-      'PyQt5',
-      'Scikit-learn',
-      'Classification',
-      'Confusion matrix',
-      'Model accuracy evaluation',
-    ],
-    learning:
-      'Applied supervised learning to a multi-feature classification problem with clear evaluation criteria.',
-    screenshot: '/images/projects/landing-safety.png',
-    githubUrl: 'https://github.com/SaraLarkem/Astro-landing-guardian',
-  },
-  {
-    id: 'java-manga',
-    name: 'Java Manga Web Application',
-    summary:
-      'Built a Java web application for browsing, searching and managing manga entries using Servlets, JSP, DAO patterns and a relational database.',
-    featured: true,
-    role: 'University project — sole developer',
-    access: 'public',
-    problem:
-      'Manga catalogue data needed a database-backed web interface with search and management features.',
-    built:
-      'Built a Java web application for browsing, searching and managing manga entries.',
-    highlights: [
-      'Supported browsing, searching and managing manga entries.',
-      'Separated data access logic using DAO patterns.',
-      'Implemented session-based authentication and a personal reading list.',
-    ],
-    evidence: [
-      'Public GitHub repository with source, README and screenshots.',
-      'Deployable Maven WAR for Apache Tomcat.',
-    ],
-    technologies: ['Java', 'Servlets', 'JSP', 'SQL', 'DAO pattern', 'Apache Tomcat'],
-    learning:
-      'Practised server-side web development with clear separation between views, controllers and data access.',
-    screenshot: '/images/projects/java-manga.png',
-    githubUrl: 'https://github.com/SaraLarkem/java-manga-web-app',
   },
   {
     id: 'research-plan-artefacts',
+    context: 'internship',
     name: 'Research Plan Artefact Hierarchy',
     summary:
       'Improved the visual hierarchy of the Planner chat interface by making Research Plan artefacts distinct from ordinary assistant messages.',
@@ -272,11 +209,11 @@ export const projects: readonly Project[] = [
       'Good implementation in an established codebase often means extending the correct abstraction rather than building a new component from scratch.',
     visualPlaceholder: {
       kind: 'evidence',
-      label: 'UI visual coming soon',
     },
   },
   {
     id: 'prompt-versioning',
+    context: 'internship',
     name: 'Prompt Versioning and Provenance',
     status: 'in progress',
     role: 'Software Development Intern — design and early implementation',
@@ -307,11 +244,76 @@ export const projects: readonly Project[] = [
       'Traceability depends on immutable version records, not on whichever prompt happens to be active at read time.',
     visualPlaceholder: {
       kind: 'database',
-      label: 'Data model visual coming soon',
     },
   },
   {
+    id: 'landing-safety',
+    context: 'university',
+    name: 'Spacecraft Landing Safety Predictor',
+    summary:
+      'A machine-learning application that predicts whether an environment is safe for a spacecraft to land, using a decision tree classifier trained on features such as atmosphere quality, gravity, radiation, temperature and terrain.',
+    featured: true,
+    role: 'University project — sole developer',
+    access: 'public',
+    problem:
+      'Landing safety depends on multiple environmental signals that are easier to assess with a structured classification workflow.',
+    built:
+      'Trained a decision tree classifier on environmental feature data and built a Python desktop application around it that predicts landing safety.',
+    highlights: [
+      'Prepared feature data for model training and evaluation.',
+      'Trained a decision tree classifier with scikit-learn.',
+      'Evaluated model performance using a confusion matrix and accuracy metrics.',
+      'Provided an interactive PyQt5 interface for entering environmental conditions.',
+    ],
+    evidence: [
+      'Working PyQt5 and scikit-learn desktop application.',
+      'Public repository with source code and documentation.',
+    ],
+    technologies: [
+      'Python',
+      'Machine learning',
+      'Scikit-learn',
+      'Decision tree classifier',
+      'PyQt5',
+      'Confusion matrix',
+      'Model accuracy evaluation',
+    ],
+    learning:
+      'Applied supervised learning to a multi-feature classification problem with clear evaluation criteria.',
+    screenshot: '/images/projects/landing-safety.png',
+    githubUrl: 'https://github.com/SaraLarkem/Astro-landing-guardian',
+  },
+  {
+    id: 'java-manga',
+    context: 'university',
+    name: 'Java Manga Web Application',
+    summary:
+      'Built a Java web application for browsing, searching and managing manga entries using Servlets, JSP, DAO patterns and a relational database.',
+    featured: true,
+    role: 'University project — sole developer',
+    access: 'public',
+    problem:
+      'Manga catalogue data needed a database-backed web interface with search and management features.',
+    built:
+      'Built a Java web application for browsing, searching and managing manga entries.',
+    highlights: [
+      'Supported browsing, searching and managing manga entries.',
+      'Separated data access logic using DAO patterns.',
+      'Implemented session-based authentication and a personal reading list.',
+    ],
+    evidence: [
+      'Public GitHub repository with source, README and screenshots.',
+      'Deployable Maven WAR for Apache Tomcat.',
+    ],
+    technologies: ['Java', 'Servlets', 'JSP', 'SQL', 'DAO pattern', 'Apache Tomcat'],
+    learning:
+      'Practised server-side web development with clear separation between views, controllers and data access.',
+    screenshot: '/images/projects/java-manga.png',
+    githubUrl: 'https://github.com/SaraLarkem/java-manga-web-app',
+  },
+  {
     id: 'music-rest-api',
+    context: 'university',
     name: 'Music REST API',
     summary:
       'Developed a REST API for managing song data, including database-backed endpoints tested through Postman.',
@@ -329,11 +331,11 @@ export const projects: readonly Project[] = [
       'Designed API endpoints around clear resource operations and verified them with practical request testing.',
     visualPlaceholder: {
       kind: 'api',
-      label: 'API visual coming soon',
     },
   },
   {
     id: 'inventory-system',
+    context: 'university',
     name: 'Python Inventory Management System',
     summary:
       'Contributed to a team-built command-line inventory system with account management, stock updates, sales records and transaction reporting.',
@@ -358,13 +360,12 @@ export const projects: readonly Project[] = [
       'Practised collaborative development with shared requirements, version control and task tracking.',
     visualPlaceholder: {
       kind: 'code',
-      label: 'CLI visual coming soon',
     },
   },
 ]
 
-export const featuredProjects = projects.filter((project) => project.featured)
-export const additionalProjects = projects.filter((project) => !project.featured)
+export const internshipProjects = projects.filter((project) => project.context === 'internship')
+export const universityProjects = projects.filter((project) => project.context === 'university')
 
 /** How the skills were gained, shown above the skills grid. */
 export const skillSources = [

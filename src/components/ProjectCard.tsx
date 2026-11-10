@@ -55,21 +55,16 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
           />
         </div>
       ) : project.visualPlaceholder ? (
+        // Decorative panel only: it carries no information, so screen readers skip it
         <div
           className={`project-card__visual project-card__visual--${project.visualPlaceholder.kind}`}
-          role="img"
-          aria-label={`${visualKindLabel[project.visualPlaceholder.kind]} placeholder for ${project.name}`}
+          aria-hidden="true"
         >
           <span className="project-card__visual-kind">
             {visualKindLabel[project.visualPlaceholder.kind]}
           </span>
-          <span className="project-card__visual-label">{project.visualPlaceholder.label}</span>
         </div>
-      ) : (
-        <div className="project-card__screenshot project-card__screenshot--placeholder" aria-hidden="true">
-          <span>Visual coming soon</span>
-        </div>
-      )}
+      ) : null}
 
       <div className="project-card__body">
         {/* Item-style category line; duplicates the tags and badges, so hidden from screen readers */}
