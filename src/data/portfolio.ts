@@ -364,6 +364,31 @@ export const projects: readonly Project[] = [
 export const featuredProjects = projects.filter((project) => project.featured)
 export const additionalProjects = projects.filter((project) => !project.featured)
 
+/** How the skills were gained, shown above the skills grid. */
+export const skillSources = [
+  {
+    title: 'Through my degree',
+    text: 'University projects built my foundations in Python, Java, JavaScript and SQL, along with machine-learning classification, REST APIs and database-backed web applications.',
+  },
+  {
+    title: 'Through my Causalix internship',
+    text: 'Working in a production codebase, I gained practical experience in machine learning and automated testing, and used Git, Docker and React with TypeScript day to day.',
+  },
+] as const
+
+export const strengths = [
+  'Curious',
+  'Enthusiastic',
+  'Highly adaptable',
+  'Enjoy co-operating and working with others',
+] as const
+
+export const hobbies = [
+  'Works of fiction in their various forms: books, films and shows',
+  'Playing video games',
+  'Going to the gym',
+] as const
+
 export const skillCategories = [
   {
     name: 'Software development',
@@ -395,11 +420,12 @@ export const skillCategories = [
   {
     name: 'AI and machine learning',
     skills: [
+      'Machine learning',
       'Retrieval-Augmented Generation',
       'Large Language Models',
       'Prompt engineering',
       'Embeddings',
-      'Vector retrieval',
+      'Vector retrieval (FAISS)',
       'Scikit-learn',
       'Structured AI outputs',
       'AI evaluation and grounding',

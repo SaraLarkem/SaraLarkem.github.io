@@ -134,3 +134,18 @@ describe('ProjectCard item line', () => {
     )
   })
 })
+
+describe('Skills & Interests', () => {
+  it('shows where skills were gained, strengths and hobbies', async () => {
+    const { Skills } = await import('../components/Skills')
+    render(<Skills />)
+
+    expect(screen.getByRole('heading', { level: 2, name: 'Skills & Interests' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Through my Causalix internship' })).toBeInTheDocument()
+    for (const skill of ['Python', 'Java', 'JavaScript', 'SQL', 'Git', 'Docker', 'Machine learning', 'Automated testing']) {
+      expect(screen.getByText(skill)).toBeInTheDocument()
+    }
+    expect(screen.getByText('Highly adaptable')).toBeInTheDocument()
+    expect(screen.getByText('Going to the gym')).toBeInTheDocument()
+  })
+})
