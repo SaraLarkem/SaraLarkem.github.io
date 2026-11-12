@@ -87,13 +87,6 @@ describe('ProjectCard', () => {
     expect(screen.queryByRole('link', { name: 'View code' })).not.toBeInTheDocument()
   })
 
-  it('shows in progress badge for ongoing work', () => {
-    const inProgress = projects.find((p) => p.status === 'in progress')!
-    render(<ProjectCard project={inProgress} />)
-
-    expect(screen.getByText('In progress')).toBeInTheDocument()
-  })
-
   it('shows GitHub for public repositories', () => {
     const publicProject = projects.find((p) => p.id === 'java-manga')!
     render(<ProjectCard project={publicProject} />)

@@ -33,9 +33,6 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
       aria-labelledby={`project-${project.id}-title`}
     >
       <div className="project-card__badges">
-        {project.status === 'in progress' && (
-          <span className="project-card__badge">In progress</span>
-        )}
         {isFeatured && (
           <span className="project-card__badge project-card__badge--featured">Featured</span>
         )}

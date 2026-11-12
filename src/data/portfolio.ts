@@ -128,7 +128,6 @@ export type Project = {
   expanded?: boolean
   summary?: string
   featured?: boolean
-  status?: 'in progress'
   /** Where the work was done; drives the grouping on the Projects section. */
   context: 'internship' | 'university'
   role?: string
@@ -219,83 +218,6 @@ export const projects: readonly Project[] = [
       'Objective metrics should remain the source of truth. The AI narrative explains results rather than replacing them.',
     visualPlaceholder: {
       kind: 'evidence',
-    },
-  },
-  {
-    id: 'research-plan-artefacts',
-    context: 'internship',
-    name: 'Research Plan Artefact Hierarchy',
-    plain:
-      'Redesigned part of the app’s chat screen so important research plans stand out clearly from normal messages.',
-    summary:
-      'Improved the visual hierarchy of the Planner chat interface by making Research Plan artefacts distinct from ordinary assistant messages.',
-    role: 'Software Development Intern — frontend contribution',
-    access: 'private',
-    problem:
-      'Research Plan artefacts were visually indistinguishable from normal assistant follow-up messages in the Planner chat interface.',
-    built:
-      'Extended the existing chat message design so Research Plans stand out, without duplicating any of the interface code.',
-    highlights: [
-      'Reused the existing chat message design.',
-      'Added a distinct style for Research Plans instead of building a duplicate design.',
-      'Preserved existing user and assistant message styling.',
-      'Preserved metadata chips, markdown, action buttons, scrolling and expand/collapse behaviour.',
-      'Verified the result in desktop, mobile, light and dark layouts.',
-    ],
-    evidence: [
-      'Focused component tests passed.',
-      'Full frontend test suite passed.',
-      'Focused lint checks passed.',
-    ],
-    technologies: [
-      'React',
-      'TypeScript',
-      'Component testing',
-      'Responsive UI',
-      'Git',
-      'Pull-request workflow',
-    ],
-    learning:
-      'In an established codebase, good work often means building on the existing design instead of starting from scratch.',
-    visualPlaceholder: {
-      kind: 'evidence',
-    },
-  },
-  {
-    id: 'prompt-versioning',
-    context: 'internship',
-    name: 'Prompt Versioning and Provenance',
-    plain:
-      'Designed a way to keep a permanent record of exactly which AI instructions were used to produce each result, so past results can always be traced.',
-    status: 'in progress',
-    role: 'Software Development Intern — design and early implementation',
-    access: 'private',
-    summary:
-      'Designed and began implementing a database model that stores AI instructions (prompts) centrally, with a permanent record of which version produced each result.',
-    problem:
-      'The platform needs to move prompts out of hard-coded application logic while retaining a permanent record of which prompt versions were used to generate each causal model.',
-    built:
-      'Proposed a data model that keeps permanent, unchangeable records of each prompt version and links every generated result to the exact versions used.',
-    highlights: [
-      'Kept each prompt separate from its permanent, unchangeable records of each version.',
-      'Designed storage for prompt content, version numbers and creation metadata.',
-      'Designed records linking each generated result to the exact prompt versions used.',
-      'Included the user, generation timestamp and prompt role or workflow step.',
-      'Made sure past results point to a permanent version record, not to whichever version is currently active.',
-      'Planned database migrations and automated tests according to the current implementation state.',
-    ],
-    technologies: [
-      'Python',
-      'SQLAlchemy',
-      'Alembic',
-      'Relational database modelling',
-      'Automated testing',
-      'Prompt engineering',
-    ],
-    learning:
-      'Tracing past results depends on permanent version records, not on whichever prompt happens to be active today.',
-    visualPlaceholder: {
-      kind: 'database',
     },
   },
   {
