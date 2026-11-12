@@ -112,12 +112,8 @@ export const experience = {
   ],
 } as const
 
-export type ProjectVisualKind =
-  | 'architecture'
-  | 'api'
-  | 'evidence'
-  | 'database'
-  | 'code'
+/** Gold line icons drawn inline in ProjectCard (no icon library). */
+export type ProjectIcon = 'search' | 'audit' | 'inventory'
 
 export type Project = {
   id: string
@@ -140,9 +136,13 @@ export type Project = {
   learning: string
   githubUrl?: string
   screenshot?: string
-  /** Decorative stand-in panel when no UI screenshot exists */
-  visualPlaceholder?: {
-    kind: ProjectVisualKind
+  /** Describes what the screenshot shows, for screen readers */
+  screenshotAlt?: string
+  /** Icon tile shown in the screenshot slot when there is no screenshot */
+  iconTile?: {
+    icon: ProjectIcon
+    label: string
+    alt: string
   }
 }
 
@@ -173,8 +173,10 @@ export const projects: readonly Project[] = [
     technologies: ['Python', 'FAISS', 'Embeddings', 'Vector retrieval', 'Large Language Models'],
     learning:
       'Retrieval quality is as important as generation quality. Poorly selected context can weaken an answer even when the language model itself is capable.',
-    visualPlaceholder: {
-      kind: 'architecture',
+    iconTile: {
+      icon: 'search',
+      label: 'Confidential company project',
+      alt: 'Illustration of a document being searched, representing the RAG pipeline',
     },
   },
   {
@@ -216,8 +218,10 @@ export const projects: readonly Project[] = [
     ],
     learning:
       'Objective metrics should remain the source of truth. The AI narrative explains results rather than replacing them.',
-    visualPlaceholder: {
-      kind: 'evidence',
+    iconTile: {
+      icon: 'audit',
+      label: 'Confidential company project',
+      alt: 'Illustration of a shield with a tick, representing the model quality checker',
     },
   },
   {
@@ -258,6 +262,8 @@ export const projects: readonly Project[] = [
     learning:
       'Applied supervised learning to a multi-feature classification problem with clear evaluation criteria.',
     screenshot: '/images/projects/landing-safety.png',
+    screenshotAlt:
+      'Spacecraft Landing Safety Predictor window with inputs for atmosphere, gravity, temperature, radiation and terrain, and a Predict button',
     githubUrl: 'https://github.com/SaraLarkem/Astro-landing-guardian',
   },
   {
@@ -288,6 +294,8 @@ export const projects: readonly Project[] = [
     learning:
       'Practised server-side web development with clear separation between views, controllers and data access.',
     screenshot: '/images/projects/java-manga.png',
+    screenshotAlt:
+      'Java Manga Web Application catalogue page showing manga titles as cards on a shelf',
     githubUrl: 'https://github.com/SaraLarkem/java-manga-web-app',
   },
   {
@@ -316,6 +324,8 @@ export const projects: readonly Project[] = [
     learning:
       'Practised keeping data (JSON) separate from application logic, and building an event-driven desktop interface.',
     screenshot: '/images/projects/ds3-boss-tracker.png',
+    screenshotAlt:
+      'Dark Souls III Boss Tracker start screen with a boss selector, Defeated and Tips checkboxes and a progress bar',
     githubUrl: 'https://github.com/SaraLarkem/DarkSouls3-Boss-App-Project',
   },
   {
@@ -345,8 +355,10 @@ export const projects: readonly Project[] = [
     ],
     learning:
       'Practised collaborative development with shared requirements, version control and task tracking.',
-    visualPlaceholder: {
-      kind: 'code',
+    iconTile: {
+      icon: 'inventory',
+      label: 'University project',
+      alt: 'Illustration of a stock box, representing the inventory system',
     },
   },
 ]

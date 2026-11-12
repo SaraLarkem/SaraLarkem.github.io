@@ -289,3 +289,20 @@ describe('Video script coverage', () => {
     }
   })
 })
+
+describe('Project visuals', () => {
+  it('gives every card a screenshot or an icon tile with alt text', () => {
+    render(<Projects />)
+
+    for (const project of projects) {
+      expect(project.screenshot || project.iconTile, project.id).toBeTruthy()
+    }
+    expect(
+      screen.getByRole('img', { name: /document being searched/ }),
+    ).toHaveTextContent('Confidential company project')
+    expect(screen.getByRole('img', { name: /Boss Tracker start screen/ })).toHaveAttribute(
+      'src',
+      '/images/projects/ds3-boss-tracker.png',
+    )
+  })
+})

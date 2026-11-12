@@ -1,4 +1,5 @@
-import type { Project } from '../data/portfolio'
+import type { ReactNode } from 'react'
+import type { Project, ProjectIcon } from '../data/portfolio'
 import { isConfiguredLink } from '../data/portfolio'
 
 type ProjectCardProps = {
@@ -6,12 +7,34 @@ type ProjectCardProps = {
   variant?: 'featured' | 'additional'
 }
 
-const visualKindLabel: Record<NonNullable<Project['visualPlaceholder']>['kind'], string> = {
-  architecture: 'Architecture',
-  api: 'API',
-  evidence: 'Evidence',
-  database: 'Data model',
-  code: 'Implementation',
+/** Simple gold line icons (24px grid) for projects without a screenshot */
+const iconPaths: Record<ProjectIcon, ReactNode> = {
+  // Document with a magnifying glass
+  search: (
+    <>
+      <path d="M13 21H6V3h8l4 4v4" />
+      <path d="M14 3v4h4" />
+      <path d="M9 9h5M9 12h4M9 15h2" />
+      <circle cx="16.5" cy="16.5" r="3" />
+      <path d="M18.6 18.6L21.5 21.5" />
+    </>
+  ),
+  // Shield with a tick
+  audit: (
+    <>
+      <path d="M12 2.5l7.5 3v5.5c0 4.6-3.2 8.4-7.5 10.5-4.3-2.1-7.5-5.9-7.5-10.5V5.5z" />
+      <path d="M8.5 12l2.5 2.5 4.5-5" />
+    </>
+  ),
+  // Stock box
+  inventory: (
+    <>
+      <path d="M3 7.5l9-4.5 9 4.5-9 4.5z" />
+      <path d="M3 7.5v9l9 4.5 9-4.5v-9" />
+      <path d="M12 12v9" />
+      <path d="M7.5 5.25l9 4.5" />
+    </>
+  ),
 }
 
 const accessLabel: Record<NonNullable<Project['access']> | 'none', string> = {
@@ -47,19 +70,26 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
         <div className="project-card__screenshot">
           <img
             src={project.screenshot}
-            alt={`Screenshot of ${project.name}`}
+            alt={project.screenshotAlt ?? `Screenshot of ${project.name}`}
             loading="lazy"
           />
         </div>
-      ) : project.visualPlaceholder ? (
-        // Decorative panel only: it carries no information, so screen readers skip it
-        <div
-          className={`project-card__visual project-card__visual--${project.visualPlaceholder.kind}`}
-          aria-hidden="true"
-        >
-          <span className="project-card__visual-kind">
-            {visualKindLabel[project.visualPlaceholder.kind]}
-          </span>
+      ) : project.iconTile ? (
+        <div className="project-card__visual" role="img" aria-label={project.iconTile.alt}>
+          <svg
+            className="project-card__visual-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            {iconPaths[project.iconTile.icon]}
+          </svg>
+          <span className="project-card__visual-label">{project.iconTile.label}</span>
         </div>
       ) : null}
 

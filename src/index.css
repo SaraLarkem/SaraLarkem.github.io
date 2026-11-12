@@ -1283,53 +1283,19 @@ ul {
     var(--color-bg-deep);
 }
 
-.project-card__visual-kind {
+.project-card__visual-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 10px var(--color-ember-glow));
+}
+
+.project-card__visual-label {
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.project-card__visual--architecture {
-  background:
-    linear-gradient(135deg, transparent 48%, var(--color-map-line) 49%, var(--color-map-line) 51%, transparent 52%),
-    radial-gradient(ellipse 70% 60% at 50% 40%, var(--color-ember), transparent 70%),
-    var(--color-bg-deep);
-}
-
-.project-card__visual--api {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 18px,
-      var(--color-map-line) 18px,
-      var(--color-map-line) 19px
-    ),
-    var(--color-bg-deep);
-}
-
-.project-card__visual--evidence {
-  background:
-    radial-gradient(circle at 20% 30%, var(--color-accent-subtle), transparent 40%),
-    var(--color-bg-deep);
-}
-
-.project-card__visual--database {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 14px,
-      var(--color-map-line) 14px,
-      var(--color-map-line) 15px
-    ),
-    var(--color-bg-deep);
-}
-
-.project-card__visual--code {
-  background: linear-gradient(180deg, var(--color-surface-deep), var(--color-bg-deep));
+  color: var(--color-text-muted);
 }
 
 .project-card__body {
