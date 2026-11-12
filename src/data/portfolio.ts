@@ -98,7 +98,7 @@ export const experience = {
   dates: 'March 2026 – August 2026',
   about: 'Causalix is an AI and causal-modelling platform.',
   summary:
-    'Contributed to an existing AI and causal-modelling platform across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. Worked within a live production codebase, learned unfamiliar systems before making changes, and delivered tested updates through the team’s code review process.',
+    'I contributed across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. I worked within a live production codebase, learned unfamiliar systems before making changes, and delivered tested updates through the team’s code review process.',
   duties:
     'My day-to-day work covered debugging, testing, and designing and implementing new features across both frontend and backend applications. Working with new and unfamiliar systems taught me to apply what I learned in my degree in a real-world setting.',
   highlights: [
