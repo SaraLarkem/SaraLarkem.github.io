@@ -32,7 +32,7 @@ export const siteConfig = {
   og: {
     title: 'Sara Larkem — Software Developer Portfolio',
     description:
-      'Final-year Software Design with AI and Cloud Computing student. Portfolio showcasing internship work, AI projects, backend systems and full-stack development.',
+      'Final-year Software Design with AI and Cloud Computing student in Ireland. Education, Causalix internship experience, projects, skills and career goals.',
     // og:url / og:image omitted until a deployed site URL and preview image are available
   },
 } as const
