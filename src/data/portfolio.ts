@@ -425,6 +425,12 @@ export const projects: readonly Project[] = [
 export const internshipProjects = projects.filter((project) => project.context === 'internship')
 export const universityProjects = projects.filter((project) => project.context === 'university')
 
+/** The six skills named in the video, shown first and largest. */
+export const coreSkills = ['Python', 'Java', 'JavaScript', 'SQL', 'Git', 'Docker'] as const
+
+/** Skills gained during the Causalix internship. */
+export const internshipSkills = ['Machine learning', 'Automated testing'] as const
+
 /** How the skills were gained, shown above the skills grid. */
 export const skillSources = [
   {
@@ -475,7 +481,6 @@ export const skillCategories = [
       'PostgreSQL',
       'SQLAlchemy',
       'Database migrations',
-      'Structured JSON interfaces',
     ],
   },
   {
@@ -488,7 +493,6 @@ export const skillCategories = [
       'Embeddings',
       'Vector retrieval (FAISS)',
       'Scikit-learn',
-      'Structured AI outputs',
       'AI evaluation and grounding',
     ],
   },
@@ -499,11 +503,8 @@ export const skillCategories = [
       'GitHub',
       'Docker',
       'Jira',
-      'Pull requests',
-      'Feature branches',
       'Pytest',
       'Vitest',
-      'Repository investigation',
       'Technical documentation',
       'Automated testing',
     ],

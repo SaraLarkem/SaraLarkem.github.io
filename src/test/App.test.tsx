@@ -156,9 +156,14 @@ describe('Skills & Interests', () => {
 
     expect(screen.getByRole('heading', { level: 2, name: 'Skills & Interests' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Through my Causalix internship' })).toBeInTheDocument()
-    for (const skill of ['Python', 'Java', 'JavaScript', 'SQL', 'Git', 'Docker', 'Machine learning', 'Automated testing']) {
-      expect(screen.getByText(skill)).toBeInTheDocument()
+    const core = screen.getByRole('list', { name: 'Core skills' })
+    for (const skill of ['Python', 'Java', 'JavaScript', 'SQL', 'Git', 'Docker']) {
+      expect(core).toHaveTextContent(skill)
     }
+    const internship = screen.getByRole('list', { name: 'Skills gained during my internship' })
+    expect(internship).toHaveTextContent('Machine learning')
+    expect(internship).toHaveTextContent('Automated testing')
+    expect(screen.queryByText('Repository investigation')).not.toBeInTheDocument()
     expect(screen.getByText('Highly adaptable')).toBeInTheDocument()
     expect(screen.getByText('Going to the gym')).toBeInTheDocument()
   })

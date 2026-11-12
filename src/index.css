@@ -1370,7 +1370,7 @@ ul {
   transition: transform 0.2s ease;
 }
 
-.project-card__details[open] > .project-card__toggle::after {
+details[open] > .project-card__toggle::after {
   transform: translateY(1px) rotate(-135deg);
 }
 
@@ -1381,11 +1381,11 @@ ul {
 }
 
 .project-card__toggle-hide,
-.project-card__details[open] .project-card__toggle-show {
+details[open] > summary .project-card__toggle-show {
   display: none;
 }
 
-.project-card__details[open] .project-card__toggle-hide {
+details[open] > summary .project-card__toggle-hide {
   display: inline;
 }
 
@@ -1526,6 +1526,40 @@ ul {
 
 .skills-category__list li:last-child {
   border-bottom: none;
+}
+
+/* Core skills: the six from the video, plus internship skills, as large gold tags */
+.skills-highlight {
+  margin-bottom: 1.5rem;
+}
+
+.skills-highlight__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag--core {
+  padding: 0.5rem 1.125rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-heading);
+  background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-surface-deep) 100%);
+  border-left: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Full technical list: collapsed and visually secondary */
+.skills-all {
+  margin-top: 1.5rem;
+}
+
+.skills-all .skills-category__list li {
+  font-size: 0.875rem;
 }
 
 /* Where the skills came from (degree / internship) */
