@@ -46,7 +46,7 @@ export function Projects() {
       id="projects"
       numeral="V"
       title="Projects"
-      subtitle="Internship work at Causalix first, followed by university projects"
+      subtitle="Internship work at Causalix first, followed by university and personal projects"
     >
       <ProjectGroup
         id="internship-projects"
@@ -56,8 +56,8 @@ export function Projects() {
       />
       <ProjectGroup
         id="university-projects"
-        title="University Projects"
-        subtitle="Built during my BSc in Software Design with AI and Cloud Computing"
+        title="University & Personal Projects"
+        subtitle="Built during my degree and in my own time"
         projects={universityProjects}
       />
     </Section>

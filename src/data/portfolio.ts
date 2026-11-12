@@ -291,28 +291,32 @@ export const projects: readonly Project[] = [
     githubUrl: 'https://github.com/SaraLarkem/java-manga-web-app',
   },
   {
-    id: 'music-rest-api',
+    id: 'ds3-boss-tracker',
     context: 'university',
-    name: 'Music REST API',
+    name: 'Dark Souls III Boss Tracker',
     plain:
-      'The behind-the-scenes service that stores and serves song information for a music app.',
+      'A desktop app that helps players track which bosses they have beaten in a video game, with information and tips for each fight.',
     summary:
-      'Developed a REST API for managing song data, including database-backed endpoints tested through Postman.',
-    role: 'University project — sole developer',
+      'A fan-made PyQt5 desktop app for tracking boss progress in Dark Souls III, with lore, locations, weaknesses, phase-by-phase tips and optional background music.',
+    role: 'Sole developer',
+    access: 'public',
     problem:
-      'Song data needed structured HTTP endpoints with reliable database persistence and testable request handling.',
+      'Players need one place to track which bosses they have beaten and to look up information and strategies for each fight.',
     built:
-      'Created REST endpoints for managing song records and validated the API through Postman testing.',
+      'Built a PyQt5 desktop app that loads boss data from a JSON file, saves progress between sessions and shows overall completion on a progress bar.',
     highlights: [
-      'Implemented database-backed endpoints for song data.',
-      'Tested request and response behaviour using Postman.',
+      'Modelled each boss as a Python class loaded from a JSON data file.',
+      'Saved defeated bosses back to JSON so progress is kept between sessions.',
+      'Showed completion with a live progress bar and a reset option.',
+      'Added phase-by-phase tip popups and victory messages.',
+      'Added play and pause controls for background music.',
     ],
-    technologies: ['PHP', 'Slim', 'PDO', 'MySQL', 'REST APIs', 'Postman'],
+    evidence: ['Public GitHub repository with source code and README.'],
+    technologies: ['Python', 'PyQt5', 'Object-oriented design', 'JSON', 'QMediaPlayer'],
     learning:
-      'Designed API endpoints around clear resource operations and verified them with practical request testing.',
-    visualPlaceholder: {
-      kind: 'api',
-    },
+      'Practised keeping data (JSON) separate from application logic, and building an event-driven desktop interface.',
+    screenshot: '/images/projects/ds3-boss-tracker.png',
+    githubUrl: 'https://github.com/SaraLarkem/DarkSouls3-Boss-App-Project',
   },
   {
     id: 'inventory-system',

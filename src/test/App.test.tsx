@@ -103,7 +103,7 @@ describe('Projects', () => {
     const { container } = render(<Projects />)
 
     const groups = [...container.querySelectorAll('.projects-group__title')].map((h) => h.textContent)
-    expect(groups).toEqual(['Causalix Internship', 'University Projects'])
+    expect(groups).toEqual(['Causalix Internship', 'University & Personal Projects'])
     expect(internshipProjects[0].id).toBe('rag-pipeline')
     expect(internshipProjects.every((p) => p.access === 'private')).toBe(true)
     expect(universityProjects.map((p) => p.id)).toContain('landing-safety')
