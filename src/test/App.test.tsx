@@ -68,7 +68,7 @@ describe('ProjectCard', () => {
     expect(screen.getByText('Evidence / Validation')).toBeInTheDocument()
     expect(screen.getByText(/13 automated tests passed/)).toBeInTheDocument()
     expect(screen.getByText('Private internship work')).toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: 'View on GitHub' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('link', { name: 'View code' })).not.toBeInTheDocument()
   })
 
   it('shows in progress badge for ongoing work', () => {
@@ -82,7 +82,7 @@ describe('ProjectCard', () => {
     const publicProject = projects.find((p) => p.id === 'java-manga')!
     render(<ProjectCard project={publicProject} />)
 
-    expect(screen.getByRole('link', { name: 'View on GitHub' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'View code' })).toHaveAttribute(
       'href',
       'https://github.com/SaraLarkem/java-manga-web-app',
     )
@@ -209,5 +209,21 @@ describe('Education', () => {
     ).toBeInTheDocument()
     expect(screen.getByText('Full Distinction Award')).toBeInTheDocument()
     expect(screen.getByText('Killina Secondary School')).toBeInTheDocument()
+  })
+})
+
+describe('Project details toggle', () => {
+  it('opens the video projects by default and keeps the others short', () => {
+    const { container } = render(<Projects />)
+    const isOpen = (id: string) =>
+      container
+        .querySelector(`[aria-labelledby="project-${id}-title"] details`)
+        ?.hasAttribute('open')
+
+    expect(isOpen('rag-pipeline')).toBe(true)
+    expect(isOpen('landing-safety')).toBe(true)
+    expect(isOpen('causal-model-auditor')).toBe(false)
+    expect(screen.getAllByText('Company project — code is confidential').length).toBeGreaterThan(0)
+    expect(screen.queryByText(/View on GitHub/)).not.toBeInTheDocument()
   })
 })

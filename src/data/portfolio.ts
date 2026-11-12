@@ -116,6 +116,10 @@ export type ProjectVisualKind =
 export type Project = {
   id: string
   name: string
+  /** One plain-English sentence for non-technical readers, shown under the title. */
+  plain: string
+  /** Show the detailed write-up open by default (projects featured in the video). */
+  expanded?: boolean
   summary?: string
   featured?: boolean
   status?: 'in progress'
@@ -142,6 +146,9 @@ export const projects: readonly Project[] = [
     id: 'rag-pipeline',
     context: 'internship',
     name: 'RAG Pipeline (Retrieval-Augmented Generation)',
+    plain:
+      'A system that lets an AI answer questions using a company’s own documents, so its answers are accurate and based on real sources.',
+    expanded: true,
     summary:
       'Built during my Causalix internship: a pipeline that processes documents, converts them into embeddings, retrieves the most relevant content with FAISS and uses that context to generate grounded answers.',
     featured: true,
@@ -169,6 +176,8 @@ export const projects: readonly Project[] = [
     id: 'causal-model-auditor',
     context: 'internship',
     name: 'Causal Model Auditor',
+    plain:
+      'A tool that automatically checks the quality of data models and explains the results in plain language.',
     summary:
       'A standalone Python tool that analyses the structural and evidence quality of causal models before producing an optional AI-assisted explanation.',
     featured: true,
@@ -210,6 +219,8 @@ export const projects: readonly Project[] = [
     id: 'research-plan-artefacts',
     context: 'internship',
     name: 'Research Plan Artefact Hierarchy',
+    plain:
+      'Redesigned part of the app’s chat screen so important research plans stand out clearly from normal messages.',
     summary:
       'Improved the visual hierarchy of the Planner chat interface by making Research Plan artefacts distinct from ordinary assistant messages.',
     role: 'Software Development Intern — frontend contribution',
@@ -217,10 +228,10 @@ export const projects: readonly Project[] = [
     problem:
       'Research Plan artefacts were visually indistinguishable from normal assistant follow-up messages in the Planner chat interface.',
     built:
-      'Extended the existing chat message component with a generic artefact variant so Research Plans stand out without duplicating UI logic.',
+      'Extended the existing chat message design so Research Plans stand out, without duplicating any of the interface code.',
     highlights: [
-      'Reused the existing ChatBubble component.',
-      'Added a generic artefact variant instead of introducing a duplicate component.',
+      'Reused the existing chat message design.',
+      'Added a distinct style for Research Plans instead of building a duplicate design.',
       'Preserved existing user and assistant message styling.',
       'Preserved metadata chips, markdown, action buttons, scrolling and expand/collapse behaviour.',
       'Verified the result in desktop, mobile, light and dark layouts.',
@@ -239,7 +250,7 @@ export const projects: readonly Project[] = [
       'Pull-request workflow',
     ],
     learning:
-      'Good implementation in an established codebase often means extending the correct abstraction rather than building a new component from scratch.',
+      'In an established codebase, good work often means building on the existing design instead of starting from scratch.',
     visualPlaceholder: {
       kind: 'evidence',
     },
@@ -248,21 +259,23 @@ export const projects: readonly Project[] = [
     id: 'prompt-versioning',
     context: 'internship',
     name: 'Prompt Versioning and Provenance',
+    plain:
+      'Designed a way to keep a permanent record of exactly which AI instructions were used to produce each result, so past results can always be traced.',
     status: 'in progress',
     role: 'Software Development Intern — design and early implementation',
     access: 'private',
     summary:
-      'Designed and began implementing a database model for centrally managed, versioned prompts with historical generation traceability.',
+      'Designed and began implementing a database model that stores AI instructions (prompts) centrally, with a permanent record of which version produced each result.',
     problem:
       'The platform needs to move prompts out of hard-coded application logic while retaining a permanent record of which prompt versions were used to generate each causal model.',
     built:
-      'Proposed a data model that separates stable prompt identity from immutable prompt versions and links each generation event to the exact versions used.',
+      'Proposed a data model that keeps permanent, unchangeable records of each prompt version and links every generated result to the exact versions used.',
     highlights: [
-      'Separated stable prompt identity from immutable prompt versions.',
+      'Kept each prompt separate from its permanent, unchangeable records of each version.',
       'Designed storage for prompt content, version numbers and creation metadata.',
-      'Designed provenance records linking generation activity to the exact prompt versions used.',
+      'Designed records linking each generated result to the exact prompt versions used.',
       'Included the user, generation timestamp and prompt role or workflow step.',
-      'Ensured historical records reference immutable prompt versions rather than the currently active version.',
+      'Made sure past results point to a permanent version record, not to whichever version is currently active.',
       'Planned database migrations and automated tests according to the current implementation state.',
     ],
     technologies: [
@@ -274,7 +287,7 @@ export const projects: readonly Project[] = [
       'Prompt engineering',
     ],
     learning:
-      'Traceability depends on immutable version records, not on whichever prompt happens to be active at read time.',
+      'Tracing past results depends on permanent version records, not on whichever prompt happens to be active today.',
     visualPlaceholder: {
       kind: 'database',
     },
@@ -283,6 +296,9 @@ export const projects: readonly Project[] = [
     id: 'landing-safety',
     context: 'university',
     name: 'Spacecraft Landing Safety Predictor',
+    plain:
+      'A desktop app that uses machine learning to predict whether a planet’s conditions are safe for a spacecraft to land.',
+    expanded: true,
     summary:
       'A machine-learning application that predicts whether an environment is safe for a spacecraft to land, using a decision tree classifier trained on features such as atmosphere quality, gravity, radiation, temperature and terrain.',
     featured: true,
@@ -320,6 +336,8 @@ export const projects: readonly Project[] = [
     id: 'java-manga',
     context: 'university',
     name: 'Java Manga Web Application',
+    plain:
+      'A website for browsing, searching and keeping a personal reading list of manga.',
     summary:
       'Built a Java web application for browsing, searching and managing manga entries using Servlets, JSP, DAO patterns and a relational database.',
     featured: true,
@@ -348,6 +366,8 @@ export const projects: readonly Project[] = [
     id: 'music-rest-api',
     context: 'university',
     name: 'Music REST API',
+    plain:
+      'The behind-the-scenes service that stores and serves song information for a music app.',
     summary:
       'Developed a REST API for managing song data, including database-backed endpoints tested through Postman.',
     role: 'University project — sole developer',
@@ -370,6 +390,8 @@ export const projects: readonly Project[] = [
     id: 'inventory-system',
     context: 'university',
     name: 'Python Inventory Management System',
+    plain:
+      'A team-built program for tracking stock, sales and transactions for a small business.',
     summary:
       'Contributed to a team-built command-line inventory system with account management, stock updates, sales records and transaction reporting.',
     role: 'University team project — contributor',

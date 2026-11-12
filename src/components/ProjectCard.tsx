@@ -74,40 +74,11 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
         <h3 id={`project-${project.id}-title`} className="project-card__title">
           {project.name}
         </h3>
-        {project.summary && <p className="project-card__summary">{project.summary}</p>}
-
-        <p className="project-card__problem">
-          <span className="label">Problem / Goal:</span> {project.problem}
-        </p>
-        <p className="project-card__built">
-          <span className="label">What I built:</span> {project.built}
-        </p>
+        <p className="project-card__plain">{project.plain}</p>
         {project.role && (
           <p className="project-card__role">
             <span className="label">My role:</span> {project.role}
           </p>
-        )}
-
-        {project.highlights.length > 0 && (
-          <>
-            <p className="project-card__list-label label">Key features:</p>
-            <ul className="project-card__highlights">
-              {project.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {project.evidence && project.evidence.length > 0 && (
-          <div className="project-card__evidence-panel">
-            <p className="project-card__evidence-label label">Evidence / Validation</p>
-            <ul className="project-card__evidence">
-              {project.evidence.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
         )}
 
         <div className="tag-list" aria-label={`Technologies used in ${project.name}`}>
@@ -118,9 +89,48 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
           ))}
         </div>
 
-        <p className="project-card__learning">
-          <span className="label">Key learning:</span> {project.learning}
-        </p>
+        {/* Native disclosure: keyboard (Tab, Enter/Space) and screen-reader support built in */}
+        <details className="project-card__details" open={project.expanded}>
+          <summary className="project-card__toggle">
+            <span className="project-card__toggle-show">Show details</span>
+            <span className="project-card__toggle-hide">Hide details</span>
+          </summary>
+
+          {project.summary && <p className="project-card__summary">{project.summary}</p>}
+
+          <p className="project-card__problem">
+            <span className="label">Problem / Goal:</span> {project.problem}
+          </p>
+          <p className="project-card__built">
+            <span className="label">What I built:</span> {project.built}
+          </p>
+
+          {project.highlights.length > 0 && (
+            <>
+              <p className="project-card__list-label label">Key features:</p>
+              <ul className="project-card__highlights">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {project.evidence && project.evidence.length > 0 && (
+            <div className="project-card__evidence-panel">
+              <p className="project-card__evidence-label label">Evidence / Validation</p>
+              <ul className="project-card__evidence">
+                {project.evidence.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <p className="project-card__learning">
+            <span className="label">Key learning:</span> {project.learning}
+          </p>
+        </details>
 
         <div className="project-card__actions">
           {showGithub && (
@@ -130,11 +140,11 @@ export function ProjectCard({ project, variant = 'additional' }: ProjectCardProp
               target="_blank"
               rel="noopener noreferrer"
             >
-              View on GitHub
+              View code
             </a>
           )}
           {project.access === 'private' && !showGithub && (
-            <span className="project-card__access-note">Source not publicly linked</span>
+            <span className="project-card__access-note">Company project — code is confidential</span>
           )}
         </div>
       </div>
