@@ -1017,6 +1017,28 @@ ul {
   font-size: 0.875rem;
 }
 
+.experience-card__dates {
+  margin: 0.375rem 0 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Education: a stack of Experience-style cards */
+.education-list {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.education-card__note {
+  margin: 0.875rem 0 0;
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+.education-card__modules {
+  margin: 0.875rem 0 0;
+}
+
 .experience-card__summary {
   margin: 1rem 0 1.25rem;
   max-width: 48rem;

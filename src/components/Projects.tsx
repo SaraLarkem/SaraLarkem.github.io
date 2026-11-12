@@ -44,7 +44,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      numeral="IV"
+      numeral="V"
       title="Projects"
       subtitle="Internship work at Causalix first, followed by university projects"
     >

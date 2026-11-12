@@ -5,7 +5,7 @@ export function CareerGoals() {
   return (
     <Section
       id="career-goals"
-      numeral="VI"
+      numeral="VII"
       title="Career Goals"
       subtitle="What I am looking for next"
     >

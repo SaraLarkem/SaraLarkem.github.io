@@ -37,6 +37,7 @@ export const siteConfig = {
 export const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Education', href: '#education' },
   { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
@@ -56,6 +57,36 @@ export const aboutFocusAreas = [
   'Full-Stack Development',
   'Machine Learning',
 ] as const
+
+export type EducationEntry = {
+  qualification: string
+  institution: string
+  dates: string
+  note?: string
+  modules?: readonly string[]
+}
+
+/** Qualifications, most recent first (source: CV). */
+export const education: readonly EducationEntry[] = [
+  {
+    qualification: 'BSc (Hons) Software Design with AI and Cloud Computing',
+    institution: 'Technological University of the Shannon, Athlone',
+    dates: '2023 – present',
+    note: 'Final year',
+    modules: ['Software Design', 'Web Development', 'Databases'],
+  },
+  {
+    qualification: 'Computer Networks with Software',
+    institution: 'Laois & Offaly ETB (LOETB)',
+    dates: '2022 – 2023',
+    note: 'Full Distinction Award',
+  },
+  {
+    qualification: 'Leaving Certificate',
+    institution: 'Killina Secondary School',
+    dates: '2016 – 2020',
+  },
+]
 
 export const experience = {
   company: 'Causalix',

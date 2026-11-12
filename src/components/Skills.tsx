@@ -5,7 +5,7 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      numeral="II"
+      numeral="III"
       title="Skills & Interests"
       subtitle="Technical skills, where I gained them, strengths and interests"
     >

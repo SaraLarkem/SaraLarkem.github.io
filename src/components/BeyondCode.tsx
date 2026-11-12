@@ -5,7 +5,7 @@ export function BeyondCode() {
   return (
     <Section
       id="beyond-code"
-      numeral="V"
+      numeral="VI"
       title="What I Bring Beyond Code"
       subtitle="Skills from previous work and college experience"
       backdropScene="moon"

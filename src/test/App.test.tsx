@@ -187,6 +187,7 @@ describe('Page order', () => {
     expect(ids).toEqual([
       'home',
       'about',
+      'education',
       'skills',
       'experience',
       'projects',
@@ -194,5 +195,19 @@ describe('Page order', () => {
       'career-goals',
       'contact',
     ])
+  })
+})
+
+describe('Education', () => {
+  it('lists the degree, LOETB award and Leaving Certificate', async () => {
+    const { Education } = await import('../components/Education')
+    render(<Education />)
+
+    expect(screen.getByRole('heading', { level: 2, name: 'Education' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'BSc (Hons) Software Design with AI and Cloud Computing' }),
+    ).toBeInTheDocument()
+    expect(screen.getByText('Full Distinction Award')).toBeInTheDocument()
+    expect(screen.getByText('Killina Secondary School')).toBeInTheDocument()
   })
 })
