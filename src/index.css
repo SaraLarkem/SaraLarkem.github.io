@@ -706,6 +706,13 @@ ul {
   color: var(--color-text-muted);
 }
 
+.hero__location {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+}
+
 .hero__intro {
   margin: 0 0 2rem;
   font-size: 1.0625rem;
@@ -742,6 +749,7 @@ ul {
 .hero__title,
 .hero__rule,
 .hero__role,
+.hero__location,
 .hero__intro,
 .hero__actions {
   animation: rise-from-dark 1.1s cubic-bezier(0.2, 0.6, 0.2, 1) both;
@@ -759,7 +767,8 @@ ul {
   transform-origin: left center;
 }
 
-.hero__role {
+.hero__role,
+.hero__location {
   animation-delay: 0.9s;
 }
 
@@ -1766,6 +1775,43 @@ details[open] > summary .project-card__toggle-hide {
   margin: 0 0 1.5rem;
   max-width: 36rem;
   font-size: 1.0625rem;
+}
+
+/* Personal details as plain, readable text */
+.contact__details {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.contact__detail {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.contact__detail dt {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.contact__detail dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact__detail a {
+  color: var(--color-text-heading);
+  text-decoration-color: var(--color-accent-border);
+  text-underline-offset: 0.2em;
+}
+
+.contact__detail a:hover {
+  color: var(--color-accent-hover);
 }
 
 .contact__actions {

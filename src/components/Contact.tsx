@@ -19,6 +19,34 @@ export function Contact() {
           I am interested in graduate software engineering, full-stack, backend, AI engineering
           and cloud-related opportunities. The best way to reach me is through the links below.
         </p>
+        <dl className="contact__details">
+          {isConfiguredLink(email) && (
+            <div className="contact__detail">
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${email}`}>{email}</a>
+              </dd>
+            </div>
+          )}
+          <div className="contact__detail">
+            <dt>Location</dt>
+            <dd>{siteConfig.location}</dd>
+          </div>
+          {isConfiguredLink(linkedin) && (
+            <div className="contact__detail">
+              <dt>LinkedIn</dt>
+              <dd>
+                <a href={linkedin} target="_blank" rel="noopener noreferrer">
+                  {linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                </a>
+              </dd>
+            </div>
+          )}
+          <div className="contact__detail">
+            <dt>Languages</dt>
+            <dd>{siteConfig.languages}</dd>
+          </div>
+        </dl>
         <div className="contact__actions">
           {isConfiguredLink(email) && (
             <a href={`mailto:${email}`} className="btn btn--primary">

@@ -55,6 +55,13 @@ describe('Contact', () => {
     )
     expect(screen.getByRole('link', { name: 'Download CV' })).toHaveAttribute('download')
     expect(screen.queryByText(/being finalised/)).not.toBeInTheDocument()
+    // Personal details are readable as plain text, not only behind buttons
+    expect(screen.getByRole('link', { name: 'saralarkem7@gmail.com' })).toHaveAttribute(
+      'href',
+      'mailto:saralarkem7@gmail.com',
+    )
+    expect(screen.getByRole('link', { name: 'linkedin.com/in/slarkem' })).toBeInTheDocument()
+    expect(screen.getByText('Tullamore, Co. Offaly, Ireland')).toBeInTheDocument()
   })
 })
 

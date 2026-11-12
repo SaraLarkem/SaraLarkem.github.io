@@ -21,6 +21,8 @@ export const siteConfig = {
   university:
     'Final-year BSc Software Design with AI and Cloud Computing student at Technological University of the Shannon, Ireland.',
   email: 'saralarkem7@gmail.com',
+  location: 'Tullamore, Co. Offaly, Ireland',
+  languages: 'English (native), Arabic (fluent)',
   links: {
     github: 'https://github.com/SaraLarkem',
     linkedin: 'https://www.linkedin.com/in/slarkem/',
