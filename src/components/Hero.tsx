@@ -26,7 +26,7 @@ export function Hero() {
         </h1>
         <span className="hero__rule" aria-hidden="true" />
         <p className="hero__role">{siteConfig.title}</p>
-        <p className="hero__location">Final-year student · {siteConfig.location}</p>
+        <p className="hero__location">{siteConfig.location}</p>
         <p className="hero__intro">{siteConfig.tagline}</p>
 
         <div className="hero__actions">
