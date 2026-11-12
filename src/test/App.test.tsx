@@ -260,3 +260,39 @@ describe('Experience', () => {
     expect(screen.getByText('Learned unfamiliar systems quickly before making changes.')).toBeInTheDocument()
   })
 })
+
+describe('Navigation', () => {
+  it('points every nav link at a section on the page', async () => {
+    const { default: App } = await import('../App')
+    const { navItems } = await import('../data/portfolio')
+    const { container } = render(<App />)
+
+    for (const item of navItems) {
+      expect(container.querySelector(item.href), item.href).not.toBeNull()
+    }
+  })
+})
+
+describe('Video script coverage', () => {
+  it('keeps every item from the elevator-pitch video on the page', async () => {
+    const { default: App } = await import('../App')
+    const { container } = render(<App />)
+    const text = container.textContent ?? ''
+
+    const items = [
+      'Python', 'Java', 'JavaScript', 'SQL', 'Git', 'Docker',
+      'Machine learning', 'Automated testing',
+      'Curious', 'Enthusiastic', 'Highly adaptable', 'co-operating',
+      'Works of fiction', 'video games', 'gym',
+      'frontend and backend', 'debugging, testing, and designing and implementing new features',
+      'RAG Pipeline', 'FAISS', 'embeddings', 'Spacecraft Landing Safety Predictor', 'decision tree classifier',
+      'care giver', 'over a year', 'Working independently', 'Being responsible',
+      'Communicating clearly', 'Handling challenges calmly',
+      'Backend', 'Full-Stack', 'AI-related roles', 'problem-solving', 'eagerness to learn',
+      'light and positivity',
+    ]
+    for (const item of items) {
+      expect(text, item).toContain(item)
+    }
+  })
+})
