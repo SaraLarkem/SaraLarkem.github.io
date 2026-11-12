@@ -539,4 +539,10 @@ export const beyondCode = [
     text: 'Team projects at college regularly put me alongside new people, with deadlines that every member had to meet.',
     skills: ['Working with new people', 'Meeting project demands on time', 'Time management'],
   },
+  {
+    title: 'Retail Assistant',
+    place: 'CEX, Tullamore · Nov 2021 – Dec 2022',
+    text: 'I tested and checked second-hand electronics before resale, carried out inventory checks and helped customers choose the right products.',
+    skills: ['Customer service', 'Testing electronics carefully', 'Accurate stock and pricing'],
+  },
 ] as const

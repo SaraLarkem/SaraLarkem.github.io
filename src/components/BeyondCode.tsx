@@ -7,7 +7,7 @@ export function BeyondCode() {
       id="beyond-code"
       numeral="VI"
       title="What I Bring Beyond Code"
-      subtitle="Skills from previous work and college experience"
+      subtitle="Skills from previous jobs and college experience"
       backdropScene="moon"
     >
       <div className="beyond">
