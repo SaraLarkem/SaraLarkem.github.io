@@ -32,6 +32,15 @@ describe('Hero', () => {
     )
   })
 
+  it('shows the profile photo with the name as alt text', () => {
+    render(<Hero />)
+
+    expect(screen.getByRole('img', { name: 'Sara Larkem' })).toHaveAttribute(
+      'src',
+      '/images/sara-larkem.jpg',
+    )
+  })
+
   it('keeps decorative embers hidden from assistive technology', () => {
     const { container } = render(<Hero />)
     const embers = container.querySelector('.embers')

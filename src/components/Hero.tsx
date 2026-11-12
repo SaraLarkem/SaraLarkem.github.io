@@ -13,6 +13,13 @@ export function Hero() {
       <Embers />
 
       <div className="hero__inner">
+        <img
+          className="hero__photo"
+          src={siteConfig.photo}
+          alt={siteConfig.name}
+          width={400}
+          height={400}
+        />
         <p className="hero__eyebrow">Portfolio</p>
         <h1 id="hero-heading" className="hero__title">
           {siteConfig.name}

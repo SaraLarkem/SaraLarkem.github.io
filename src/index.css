@@ -681,6 +681,41 @@ ul {
   margin: 0 auto;
 }
 
+/* Profile photo: round, gold-ringed. Above the name on phones, beside the text on laptops. */
+.hero__photo {
+  display: block;
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 0 1.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 0 6px var(--color-accent-subtle), var(--shadow-glow);
+  animation: rise-from-dark 1.1s cubic-bezier(0.2, 0.6, 0.2, 1) 0.4s both;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    max-width: 60rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero__inner > :not(.hero__photo) {
+    grid-column: 1;
+  }
+
+  .hero__photo {
+    grid-column: 2;
+    grid-row: 1 / span 7;
+    width: 15rem;
+    height: 15rem;
+    margin: 0;
+  }
+}
+
 .hero__eyebrow {
   margin: 0 0 0.75rem;
   font-size: 0.8125rem;
