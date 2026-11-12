@@ -113,7 +113,7 @@ export const experience = {
 } as const
 
 /** Gold line icons drawn inline in ProjectCard (no icon library). */
-export type ProjectIcon = 'search' | 'audit' | 'inventory'
+export type ProjectIcon = 'search' | 'audit'
 
 export type Project = {
   id: string
@@ -327,39 +327,6 @@ export const projects: readonly Project[] = [
     screenshotAlt:
       'Dark Souls III Boss Tracker start screen with a boss selector, Defeated and Tips checkboxes and a progress bar',
     githubUrl: 'https://github.com/SaraLarkem/DarkSouls3-Boss-App-Project',
-  },
-  {
-    id: 'inventory-system',
-    context: 'university',
-    name: 'Python Inventory Management System',
-    plain:
-      'A team-built program for tracking stock, sales and transactions for a small business.',
-    summary:
-      'Contributed to a team-built command-line inventory system with account management, stock updates, sales records and transaction reporting.',
-    role: 'University team project — contributor',
-    problem:
-      'A small inventory workflow needed reliable stock tracking, sales recording and reporting in a shared codebase.',
-    built:
-      'Worked on a command-line inventory system with account management, stock updates, sales records and transaction reporting.',
-    highlights: [
-      'Implemented stock updates, sales records and transaction reporting.',
-      'Applied input validation and team-based development practices.',
-    ],
-    technologies: [
-      'Python',
-      'SQLite',
-      'GitHub',
-      'Jira',
-      'Team development',
-      'Input validation',
-    ],
-    learning:
-      'Practised collaborative development with shared requirements, version control and task tracking.',
-    iconTile: {
-      icon: 'inventory',
-      label: 'University project',
-      alt: 'Illustration of a stock box, representing the inventory system',
-    },
   },
 ]
 

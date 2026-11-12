@@ -26,15 +26,6 @@ const iconPaths: Record<ProjectIcon, ReactNode> = {
       <path d="M8.5 12l2.5 2.5 4.5-5" />
     </>
   ),
-  // Stock box
-  inventory: (
-    <>
-      <path d="M3 7.5l9-4.5 9 4.5-9 4.5z" />
-      <path d="M3 7.5v9l9 4.5 9-4.5v-9" />
-      <path d="M12 12v9" />
-      <path d="M7.5 5.25l9 4.5" />
-    </>
-  ),
 }
 
 const accessLabel: Record<NonNullable<Project['access']> | 'none', string> = {
