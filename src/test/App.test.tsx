@@ -227,3 +227,15 @@ describe('Project details toggle', () => {
     expect(screen.queryByText(/View on GitHub/)).not.toBeInTheDocument()
   })
 })
+
+describe('Experience', () => {
+  it('shows dates, location and plain-result contributions', async () => {
+    const { Experience } = await import('../components/Experience')
+    render(<Experience />)
+
+    expect(screen.getByText('March 2026 – August 2026')).toBeInTheDocument()
+    expect(screen.getByText(/Causalix · Amsterdam/)).toBeInTheDocument()
+    expect(screen.getByText(/debugging, testing, and designing and implementing new features/)).toBeInTheDocument()
+    expect(screen.getByText('Learned unfamiliar systems quickly before making changes.')).toBeInTheDocument()
+  })
+})

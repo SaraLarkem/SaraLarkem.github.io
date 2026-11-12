@@ -91,18 +91,21 @@ export const education: readonly EducationEntry[] = [
 export const experience = {
   company: 'Causalix',
   role: 'Software Development Intern',
+  location: 'Amsterdam, Netherlands',
+  dates: 'March 2026 – August 2026',
+  about: 'Causalix is an AI and causal-modelling platform.',
   summary:
-    'Contributed to an existing AI and causal-modelling platform across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. Worked within a production codebase, investigated unfamiliar systems before implementing changes, and delivered tested updates through feature branches and pull requests.',
+    'Contributed to an existing AI and causal-modelling platform across Python backend services, React and TypeScript frontend components, database design and AI-assisted functionality. Worked within a live production codebase, learned unfamiliar systems before making changes, and delivered tested updates through the team’s code review process.',
   duties:
     'My day-to-day work covered debugging, testing, and designing and implementing new features across both frontend and backend applications. Working with new and unfamiliar systems taught me to apply what I learned in my degree in a real-world setting.',
   highlights: [
-    'Built and tested a standalone causal-model auditing tool.',
-    'Implemented objective graph-quality analysis and an optional AI narrative layer.',
-    'Improved the presentation of Research Plan artefacts in the React frontend.',
-    'Delivered authentication fixes and system health monitoring across the platform.',
-    'Designed a prompt-versioning and provenance approach for tracing how historical causal models were generated.',
-    'Investigated existing platform functionality before extending components or introducing new abstractions.',
-    'Used Git, Docker, Jira, automated testing and pull-request workflows throughout the internship.',
+    'Built a tool that automatically checks the quality of data models, with 13 automated tests.',
+    'Added clear quality scores to that tool, plus an optional AI-written explanation of the results.',
+    'Made research plans stand out in the app’s chat screen (React frontend).',
+    'Fixed login issues and added system health monitoring across the platform.',
+    'Designed a permanent record of which AI instructions produced each result (prompt versioning).',
+    'Learned unfamiliar systems quickly before making changes.',
+    'Used the team’s everyday tools throughout: Git, Docker, Jira and automated testing.',
   ],
 } as const
 

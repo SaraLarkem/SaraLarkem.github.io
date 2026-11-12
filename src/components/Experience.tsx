@@ -13,10 +13,15 @@ export function Experience() {
         <header className="experience-card__header">
           <div>
             <h3 className="experience-card__role">{experience.role}</h3>
-            <p className="experience-card__company">{experience.company}</p>
+            <p className="experience-card__company">
+              {experience.company} · {experience.location}
+            </p>
+            <p className="experience-card__dates">{experience.dates}</p>
           </div>
         </header>
-        <p className="experience-card__summary">{experience.summary}</p>
+        <p className="experience-card__summary">
+          {experience.about} {experience.summary}
+        </p>
         <p className="experience-card__summary">{experience.duties}</p>
         <h4 className="experience-card__highlights-title">Key contributions</h4>
         <ul className="experience-card__highlights">
