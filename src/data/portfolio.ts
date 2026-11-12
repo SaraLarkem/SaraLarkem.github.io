@@ -523,7 +523,7 @@ export const careerGoals = {
 /** Non-coding experience and the skills it built (Beyond Code section). */
 export const beyondCode = [
   {
-    title: 'Health Assistant',
+    title: 'Care Giver',
     place: 'Connected Health · over a year',
     text: 'I worked as a care giver with Connected Health for over a year. Care work depends on being reliable, staying calm and communicating clearly with the people you support.',
     skills: [
